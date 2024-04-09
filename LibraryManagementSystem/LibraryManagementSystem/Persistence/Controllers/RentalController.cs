@@ -74,6 +74,16 @@ namespace LibraryManagementSystem.Persistence.Controllers
             return [.. _context.Rentals];
         }
 
+        public List<Rental> GetRentals(int userId)
+        {
+            return [.. _context.Rentals.Where(item => item.RentedBy.UserId == userId)];
+        }
+
+        public List<Rental> GetRentals(string ISBN)
+        {
+            return [.. _context.Rentals.Where(item => item.BookRented.ISBN == ISBN)];
+        }
+
         /// <summary>
         /// Updates the given <paramref name="rental"/> in the database
         /// </summary>
@@ -97,6 +107,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (rentalToRemove != null)
             {
                 _context.Rentals.Remove(rentalToRemove);
+                _context.SaveChanges();
             }
             else
             {

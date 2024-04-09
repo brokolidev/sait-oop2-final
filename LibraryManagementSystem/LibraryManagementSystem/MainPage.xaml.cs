@@ -42,7 +42,9 @@ namespace LibraryManagementSystem
 
             Role role = new()
             {
-                Name = "Librarian"
+                Name = "Librarian",
+                IsAdmin = true,
+                ExtendedCheckOut = false
             };
             
             int newRoleId = EntityController.roleController.CreateRole(role);
@@ -66,10 +68,18 @@ namespace LibraryManagementSystem
                 BookRented = book,
                 DateRented = new DateOnly(2024, 01, 01),
                 DateExpires = new DateOnly(2024, 01, 08),
-                DateReturned = new DateOnly(2024, 01, 10)
+                DateReturned = new DateOnly(2024, 01, 10),
+                FinePayed = false
             };
 
+            //get the amount of days and multiply it by 10. this will give us the amount owed
+            rental.FineAmount = (rental.DateReturned?.ToDateTime(new TimeOnly()) - rental.DateExpires.ToDateTime(new TimeOnly()))?.Days * 10;
+
             EntityController.rentalController.CreateRental(rental);
+
+            EntityController.userController.DeleteUser(newUserId);
+
+            List<Rental> testing = EntityController.rentalController.GetRentals(newUserId);
         }
     }
 

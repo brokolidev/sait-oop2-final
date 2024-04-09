@@ -88,6 +88,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (roleToRemove != null)
             {
                 _context.Roles.Remove(roleToRemove);
+                _context.SaveChanges();
             }
             else
             {

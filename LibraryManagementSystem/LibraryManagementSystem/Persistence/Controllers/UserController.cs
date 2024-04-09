@@ -89,6 +89,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (userToRemove != null)
             {
                 _context.Users.Remove(userToRemove);
+                _context.SaveChanges();
             }
             else
             {
