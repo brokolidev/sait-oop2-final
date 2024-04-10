@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LibraryManagementSystem.Models;
+using Microsoft.Extensions.Logging;
 
 namespace LibraryManagementSystem
 {

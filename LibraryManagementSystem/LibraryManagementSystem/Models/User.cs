@@ -19,8 +19,18 @@ namespace LibraryManagementSystem.Models
         public DateTime UpdatedAt { get; set; }
         public bool IsBlocked { get; set; }
 
-        protected User()
+        public User()
         {
+        }
+
+        public User(string firstName, string lastName, string email, string phoneNumber)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+
+            IsBlocked = false;
         }
 
     }
