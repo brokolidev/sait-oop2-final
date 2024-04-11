@@ -1,3 +1,6 @@
+using LibraryManagementSystem.Config;
+using System.Diagnostics;
+
 namespace LibraryManagementSystem.Pages;
 
 public partial class InventoryPage : ContentPage
@@ -9,6 +12,6 @@ public partial class InventoryPage : ContentPage
 
     private void HomeButton_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(MainPage));
+        Shell.Current.Navigation.PopToRootAsync();
     }
 }

@@ -43,7 +43,8 @@
             <VerticalStackLayout Padding="20">
 
                 <Label FontSize="Header">Welcome to SAIT Library</Label>
-                <Label FontSize="Body">Now you are logged In as Administrator</Label>
+                <!-- bind Welcome message property to this label -->
+                <Label FontSize="Body" x:Name="WelcomMessageLabel"></Label>
 
             </VerticalStackLayout>
 

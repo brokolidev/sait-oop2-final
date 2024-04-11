@@ -7,9 +7,20 @@ namespace LibraryManagementSystem.Pages
     {
     	public MainPage()
     	{
-    		InitializeComponent();
+            InitializeComponent();
     	}
-    
+
+        protected override void OnAppearing()
+        {
+            // check if the user is already logged in
+            if (SystemEnv.IsAuthorized)
+            {
+                Shell.Current.GoToAsync(nameof(Welcome));
+            } 
+            
+            base.OnAppearing();
+        }
+
         private void InventoryButton_Clicked(object sender, EventArgs e)
         {
             Shell.Current.GoToAsync(nameof(InventoryPage));
@@ -32,9 +43,10 @@ namespace LibraryManagementSystem.Pages
             // this will need to be replaced with a database check
             if(username == "admin" && password == "admin")
             {
+                SystemEnv.IsAuthorized = true;
 
                 // set the env variables
-                SystemEnv.GetIsAuthorized = true;
+                SystemEnv.IsAuthorized = true;
                 SystemEnv.GetLogedInUserFirstName = "Admin";
                 SystemEnv.GetLogedInUserLastName= "Admin";
                 SystemEnv.GetLogedInUserType = User.UserTypes.Administrator;
