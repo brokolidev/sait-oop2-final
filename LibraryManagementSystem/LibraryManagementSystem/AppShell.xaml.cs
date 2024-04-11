@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem
+﻿using LibraryManagementSystem.Pages;
+
+namespace LibraryManagementSystem
 {
     public partial class AppShell : Shell
     {
@@ -6,6 +8,7 @@
         {
             InitializeComponent();
 
+            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(InventoryPage), typeof(InventoryPage));
         }
     }

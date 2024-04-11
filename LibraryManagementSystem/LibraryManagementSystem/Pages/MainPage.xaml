@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LibraryManagementSystem.MainPage">
-
+             x:Class="LibraryManagementSystem.Pages.MainPage"
+             Title="MainPage">
     <ScrollView>
         <HorizontalStackLayout>
 
@@ -11,46 +11,47 @@
 
                 <!-- Logo -->
                 <Label 
-                    HeightRequest="100" WidthRequest="250"
-                    FontSize="Header" TextColor="White"
-                    VerticalTextAlignment="Center"
-                    HorizontalTextAlignment="Center">Logo</Label>
+                HeightRequest="100" WidthRequest="250"
+                FontSize="Header" TextColor="White"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Home" />
+                WidthRequest="200"
+                Text="Home" />
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Rental" />
+                WidthRequest="200"
+                Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Manage Customer" />
+                WidthRequest="200"
+                Text="Manage Customer" />
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Manage Inventory"
-                    Clicked="InvenButton_Clicked"/>
+                x:Name="InventoryButton"
+                WidthRequest="200"
+                Text="Manage Inventory"
+                Clicked="InventoryButton_Clicked"/>
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Mange System" />  
-                
+                WidthRequest="200"
+                Text="Mange System" />
+
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20">
 
                 <Label FontSize="Header">Welcome to SAIT Library</Label>
-                
+
                 <Label FontSize="Body" Padding="0, 15, 0, 0" TextColor="BlueViolet">Please Login</Label>
 
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Username</Label>
                 <Entry Placeholder="Username" />
 
-                
-                
+
+
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Password</Label>
                 <Entry Placeholder="Password" IsPassword="True" />
 
@@ -58,5 +59,4 @@
 
         </HorizontalStackLayout>
     </ScrollView>
-
 </ContentPage>
