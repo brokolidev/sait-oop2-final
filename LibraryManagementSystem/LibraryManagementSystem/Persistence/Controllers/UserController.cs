@@ -20,7 +20,6 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (!_context.Users.Contains(user))
             {
                 var userCreated = _context.Users.Add(user).Entity;
-                _context.Roles.Attach(userCreated.UserRole);
                 _context.SaveChanges();
 
                 return userCreated.UserId;
