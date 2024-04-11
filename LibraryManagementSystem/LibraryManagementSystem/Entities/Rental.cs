@@ -1,21 +1,27 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.Models
+namespace LibraryManagementSystem.Entities
 {
-    public  class Rental
+    public class Rental
     {
-        public int Id { get; set; }
-        public int BookId { get; set; }
-        public int UserId { get; set; }
-        public DateTime RentedAt { get; set; }
-        public DateTime ReturnedAt { get; set; }
-        public DateTime DueDate { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public int RentalId { get; set; }
 
-        public Rental() { }
+        [DeleteBehavior(DeleteBehavior.SetNull)]
+        public Book? BookRented { get; set; }
+
+        [DeleteBehavior(DeleteBehavior.SetNull)]
+        public User? RentedBy { get; set; }
+        public required DateOnly DateRented { get; set; }
+        public required DateOnly DateExpires { get; set; } //calculated from the constants based on type of user
+        public DateOnly? DateReturned { get; set; }
+        public DateTime? DateUpdated { get; set; }
+        public bool? FinePayed { get; set; }
+        public double? FineAmount { get; set; }
     }
 }

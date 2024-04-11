@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.Models
+namespace LibraryManagementSystem.Entities
 {
     public class Administrator : User
     {
         public Administrator()
         {
-            
+            UserType = UserTypes.Administrator;
         }
 
-        public Administrator(string firstName, string lastName, string email, string phoneNumber) : base(firstName, lastName, email, phoneNumber)
+        public Administrator(string firstName, string lastName, string email, string password, string phoneNumber)
+            : base(firstName, lastName, email, password, phoneNumber)
         {
-            UserType = "Administrator";
+            UserType = UserTypes.Administrator;
         }
 
     }

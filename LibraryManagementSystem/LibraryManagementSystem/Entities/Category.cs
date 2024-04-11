@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.Models
+namespace LibraryManagementSystem.Entities
 {
     public class Category
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime RegisteredAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public int CategoryId { get; set; }
+        public required string Name { get; set; }
+        public required DateTime DateRegistered { get; set; }
+        public DateTime? DateUpdated { get; set; }
 
         public Category() { }
     }
