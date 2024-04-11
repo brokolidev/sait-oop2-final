@@ -9,6 +9,6 @@ public partial class InventoryPage : ContentPage
 
     private void HomeButton_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(MainPage));
     }
 }
