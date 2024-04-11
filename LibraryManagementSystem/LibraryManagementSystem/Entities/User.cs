@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +11,34 @@ namespace LibraryManagementSystem.Entities
     public abstract class User
     {
 
+        /*
+         * TODO:
+         *    - change all required to [NotNull]
+         *        - This will make the entities work better with the rest of the program
+         *    - DateTime should be TimeOnly. this will keep the data consistent.
+         */
+
+        [Key]
         public int UserId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public UserTypes UserType { get; set; }
-        public DateTime RegisteredAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
+
+        [NotNull]
+        public string FirstName { get; set; } = String.Empty;
+
+        [NotNull]
+        public string LastName { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Email { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Password { get; set; } = String.Empty;
+
+        [NotNull]
+        public string PhoneNumber { get; set; } = String.Empty;
+
+        [NotNull]
+        public DateOnly DateRegistered { get; set; } = new();
+        public DateOnly? DateUpdated { get; set; }
         public bool? IsBlocked { get; set; }
 
 
@@ -32,16 +54,17 @@ namespace LibraryManagementSystem.Entities
         {
         }
 
-        public User(int userId, string firstName, string lastName, string email, string phoneNumber)
+        public User(string firstName, string lastName, string email, string password, string phoneNumber)
         {
-            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
+            Password = password;
             PhoneNumber = phoneNumber;
 
-            RegisteredAt = DateTime.Now;
-            UpdatedAt = DateTime.Now;
+            IsBlocked = false;
+            DateRegistered = DateOnly.FromDateTime(DateTime.Now);
+            DateUpdated = DateOnly.FromDateTime(DateTime.Now);
             IsBlocked = false;
         }
     }

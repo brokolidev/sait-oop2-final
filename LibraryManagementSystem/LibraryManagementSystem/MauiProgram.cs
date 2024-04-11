@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using LibraryManagementSystem.Persistence;
 using LibraryManagementSystem.Pages;
+using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
 
 namespace LibraryManagementSystem
 {
@@ -23,11 +25,11 @@ namespace LibraryManagementSystem
             builder.Services.AddTransient<MainPage>();
 
             var dbContext = new LMSDbContext();
-            //dbContext.Database.EnsureCreated();
+            dbContext.Database.EnsureCreated();
             dbContext.Dispose();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -16,25 +16,45 @@ public partial class Welcome : ContentPage
         base.OnAppearing();
 
         // set welcome message
+
+        string userType = "";
+
+        if (SystemEnv.LoggedInUser is Student)
+        {
+            userType = "student";
+        }
+        else if (SystemEnv.LoggedInUser is Instructor)
+        {
+            userType = "instructor";
+        }
+        else if (SystemEnv.LoggedInUser is Librarian)
+        {
+            userType = "librarian";
+        }
+        else if (SystemEnv.LoggedInUser is Administrator)
+        {
+            userType = "administrator";
+        }
+
         WelcomMessageLabel.Text = $"Welcome " +
-            $"{SystemEnv.LoggedInUser.FirstName}," +
-            $" You are logged in as {SystemEnv.LoggedInUser.UserType}";
+            $"{SystemEnv.LoggedInUser?.FirstName}," +
+            $" You are logged in as {userType}";
 
         // set buttons by user types
         RentalButton.IsVisible = 
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Student || 
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Instructor;
+            SystemEnv.LoggedInUser is Student || 
+            SystemEnv.LoggedInUser is Instructor;
 
         CustomerButton.IsVisible = 
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian|| 
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Librarian || 
+            SystemEnv.LoggedInUser is Administrator;
 
         InventoryButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Librarian ||
+            SystemEnv.LoggedInUser is Administrator;
 
         SystemButton.IsVisible = 
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Administrator;
     }
 
     private void InventoryButton_Clicked(object sender, EventArgs e)

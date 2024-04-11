@@ -10,6 +10,7 @@ namespace LibraryManagementSystem.Persistence
 {
     public class LMSDbContext : DbContext
     {
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<User> Users { get; set; }
@@ -28,6 +29,16 @@ namespace LibraryManagementSystem.Persistence
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($"Data source={DbPath}");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Student>();
+            modelBuilder.Entity<Instructor>();
+            modelBuilder.Entity<Librarian>();
+            modelBuilder.Entity<Administrator>();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
