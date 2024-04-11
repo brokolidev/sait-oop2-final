@@ -25,12 +25,4 @@ namespace LibraryManagementSystem.Config
             }
         }
     }
-
-    public enum UserType
-    {
-        Student,
-        Instructor,
-        Administrator,
-        Librarian
-    }
 }

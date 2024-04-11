@@ -12,7 +12,6 @@ namespace LibraryManagementSystem.Persistence
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Rental> Rentals { get; set; }
-        public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
 
         public string DbPath { get; }
