@@ -31,7 +31,6 @@ namespace LibraryManagementSystem.Persistence.Controllers
                 var rentalCreated = _context.Rentals.Add(rental).Entity;
                 _context.Users.Attach(rentalCreated.RentedBy);
                 _context.Books.Attach(rentalCreated.BookRented);
-                _context.Roles.Attach(rentalCreated.RentedBy.UserRole);
                 _context.SaveChanges();
 
                 return rentalCreated.RentalId;

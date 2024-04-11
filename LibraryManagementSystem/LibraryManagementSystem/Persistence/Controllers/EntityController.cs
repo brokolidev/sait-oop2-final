@@ -8,6 +8,5 @@
         public static readonly BookController bookController = new();
         public static readonly RentalController rentalController = new();
         public static readonly UserController userController = new();
-        public static readonly RoleController roleController = new();
     }
 }

@@ -11,5 +11,10 @@ namespace LibraryManagementSystem.Pages
         {
             Shell.Current.GoToAsync(nameof(InventoryPage));
         }
+
+        private void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            //TODO: Implement the login functionality
+        }
     }
 }
