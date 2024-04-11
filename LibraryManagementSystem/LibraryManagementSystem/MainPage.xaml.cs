@@ -1,4 +1,3 @@
-using Contacts;
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
 using Microsoft.Maui.ApplicationModel.Communication;

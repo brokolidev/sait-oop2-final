@@ -63,8 +63,8 @@ namespace LibraryManagementSystem.Entities
             PhoneNumber = phoneNumber;
 
             IsBlocked = false;
-            RegisteredAt = DateTime.Now;
-            UpdatedAt = DateTime.Now;
+            DateRegistered = DateOnly.FromDateTime(DateTime.Now);
+            DateUpdated = DateOnly.FromDateTime(DateTime.Now);
             IsBlocked = false;
         }
 
