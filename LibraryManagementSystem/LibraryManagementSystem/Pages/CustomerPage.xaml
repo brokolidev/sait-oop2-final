@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryManagementSystem.Pages.CustomerPage"
+             Title="CustomerPage">
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <!-- Side Menu -->
+            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
+
+                <!-- Logo -->
+                <Label 
+    HeightRequest="100" WidthRequest="250"
+    FontSize="Header" TextColor="White"
+    VerticalTextAlignment="Center"
+    HorizontalTextAlignment="Center">Logo</Label>
+
+                <Button BackgroundColor="#1B1A55"
+                        WidthRequest="200"
+                        Text="Home"
+                        Clicked="HomeButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55"
+                        WidthRequest="200"
+                        x:Name="RentalButton"
+                        Text="Rental" />
+
+                <Button BackgroundColor="#1B1A55"
+                        WidthRequest="200"
+                        x:Name="CustomerButton"
+                        Text="Manage Customer" />
+
+                <Button BackgroundColor="#1B1A55"
+                        x:Name="InventoryButton"
+                        WidthRequest="200"
+                        Text="Manage Inventory" />
+
+                <Button BackgroundColor="#1B1A55"
+                        x:Name="SystemButton"
+                        WidthRequest="200"
+                        Text="Mange System" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+
+                <Label FontSize="20">Manage Inventory Page</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
+                <HorizontalStackLayout Spacing="15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label>Category</Label>
+                        <Picker WidthRequest="200" BackgroundColor="LightGray"></Picker>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>Title</Label>
+                        <SearchBar Placeholder="Title"></SearchBar>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>Publish Year</Label>
+                        <SearchBar Placeholder="Year"></SearchBar>
+                    </VerticalStackLayout>
+                    <Button Text="Check Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                </HorizontalStackLayout>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
+                <HorizontalStackLayout>
+                    <ListView x:Name="BooksListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Title}"
+                                          Detail="{Binding Author}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </HorizontalStackLayout>
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Inventory</Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Button Text="Add Inventory" WidthRequest="200" Margin="0,0,15,0" Clicked="AddInvenButton_Clicked"></Button>
+                    <Button Text="Edit Inventory"  WidthRequest="200" Margin="0,0,15,0"></Button>
+                    <Button Text="Delete Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
+                </HorizontalStackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
+                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
+                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
+                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
+                    <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
+                    <Button Text="Add Book" WidthRequest="200" />
+                </StackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </ScrollView>
+
+</ContentPage>
