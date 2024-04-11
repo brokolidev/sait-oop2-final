@@ -30,7 +30,8 @@
 
                 <Button BackgroundColor="#1B1A55"
                     WidthRequest="200"
-                    Text="Manage Inventory" />
+                    Text="Manage Inventory"
+                    Clicked="InvenButton_Clicked"/>
 
                 <Button BackgroundColor="#1B1A55"
                     WidthRequest="200"

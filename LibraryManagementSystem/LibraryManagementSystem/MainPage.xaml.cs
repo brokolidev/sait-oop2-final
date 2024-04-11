@@ -9,6 +9,11 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
         }
+
+        private void InvenButton_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync(nameof(InventoryPage));
+        }
     }
 
 }

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:LibraryManagementSystem"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
-    Title="LibraryManagementSystem">
+    Title="SAIT Library">
 
     <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"

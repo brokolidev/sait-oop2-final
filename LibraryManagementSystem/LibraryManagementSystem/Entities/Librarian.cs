@@ -8,7 +8,7 @@ namespace LibraryManagementSystem.Entities
 {
     public class Librarian : User
     {
-        public Librarian() : base()
+        public Librarian() : base() 
         {
             UserType = UserTypes.Librarian;
         }
