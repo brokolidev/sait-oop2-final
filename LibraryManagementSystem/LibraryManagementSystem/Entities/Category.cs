@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Entities
 {
-    public class Role
+    public class Category
     {
-        public int RoleId { get; set; }
+        public int CategoryId { get; set; }
         public required string Name { get; set; }
-        public required bool IsAdmin { get; set; }
-        public required bool ExtendedCheckOut { get; set; }
+        public required DateTime DateRegistered { get; set; }
+        public DateTime? DateUpdated { get; set; }
+
+        public Category() { }
     }
 }

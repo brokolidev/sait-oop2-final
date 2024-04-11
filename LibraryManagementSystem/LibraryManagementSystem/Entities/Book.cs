@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
@@ -12,12 +11,16 @@ namespace LibraryManagementSystem.Entities
     public class Book
     {
         [Key]
-        [NotNull]
         public required string ISBN { get; set; }
         public required string Title { get; set; }
-        public required string AuthorFirstName { get; set; }
-        public required string AuthorLastName { get; set; }
+        public required string Author { get; set; }
+        public string? Publisher { get; set; }
+        public required Category Category { get; set; }
+        public required DateTime DatePublished { get; set; }
+        public required DateTime DateRegistered { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public int? Total { get; set; }
         public int? CheckedOut { get; set; }
+
     }
 }

@@ -18,8 +18,9 @@ namespace LibraryManagementSystem.Entities
         [DeleteBehavior(DeleteBehavior.SetNull)]
         public User? RentedBy { get; set; }
         public required DateOnly DateRented { get; set; }
-        public required DateOnly DateExpires { get; set; }
+        public required DateOnly DateExpires { get; set; } //calculated from the constants based on type of user
         public DateOnly? DateReturned { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public bool? FinePayed { get; set; }
         public double? FineAmount { get; set; }
     }
