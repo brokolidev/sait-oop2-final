@@ -60,7 +60,25 @@
                     </VerticalStackLayout>
                     <Button Text="Check Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
+                <HorizontalStackLayout>
+                    <ListView>
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Book 1 - The Mountain’s Shadow by L.J. Whitsitt - Category: Fiction, Published: 2018</x:String>
+                                <x:String>Book 2 - Data Science Fundamentals by A. Smith - Category: Education, Published: 2021</x:String>
+                                <x:String>Book 3 - The Art of Cooking by E. B. Chef - Category: Culinary, Published: 2015</x:String>
+                                <!-- Add more items as needed -->
+                            </x:Array>
+                        </ListView.ItemsSource>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding .}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
         </HorizontalStackLayout>
