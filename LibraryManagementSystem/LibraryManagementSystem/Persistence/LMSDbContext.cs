@@ -10,9 +10,9 @@ namespace LibraryManagementSystem.Persistence
 {
     public class LMSDbContext : DbContext
     {
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Rental> Rentals { get; set; }
-        public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
 
         public string DbPath { get; }
