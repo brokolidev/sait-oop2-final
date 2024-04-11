@@ -23,7 +23,7 @@ namespace LibraryManagementSystem
             builder.Services.AddTransient<MainPage>();
 
             var dbContext = new LMSDbContext();
-            dbContext.Database.EnsureCreated();
+            //dbContext.Database.EnsureCreated();
             dbContext.Dispose();
 
 #if DEBUG
