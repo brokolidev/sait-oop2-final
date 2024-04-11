@@ -34,7 +34,7 @@
                     x:Name="InventoryButton"
                     WidthRequest="200"
                     Text="Manage Inventory"
-                    Clicked="InventoryButton_Clicked"/>
+                    Clicked="InventoryButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55"
                     x:Name="SystemButton"
