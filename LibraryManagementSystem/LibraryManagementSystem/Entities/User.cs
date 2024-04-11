@@ -42,6 +42,9 @@ namespace LibraryManagementSystem.Entities
             PhoneNumber = phoneNumber;
 
             IsBlocked = false;
+            RegisteredAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+            IsBlocked = false;
         }
 
     }

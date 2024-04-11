@@ -43,7 +43,7 @@
             <VerticalStackLayout Padding="20">
 
                 <Label FontSize="Header">Welcome to SAIT Library</Label>
-                <Label FontSize="Body">Now you are logged In</Label>
+                <Label FontSize="Body">Now you are logged In as Administrator</Label>
 
             </VerticalStackLayout>
 
