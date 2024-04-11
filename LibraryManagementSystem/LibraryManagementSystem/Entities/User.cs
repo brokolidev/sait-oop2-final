@@ -54,12 +54,12 @@ namespace LibraryManagementSystem.Entities
         {
         }
 
-        public User(string firstName, string lastName, string email, string password, string phoneNumber)
+        public User(int userId, string firstName, string lastName, string email, string phoneNumber)
         {
+            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            Password = password;
             PhoneNumber = phoneNumber;
 
             IsBlocked = false;
@@ -67,6 +67,5 @@ namespace LibraryManagementSystem.Entities
             DateUpdated = DateOnly.FromDateTime(DateTime.Now);
             IsBlocked = false;
         }
-
     }
 }

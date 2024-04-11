@@ -9,7 +9,7 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
 
-            if(SystemEnv.GetIsAuthorized)
+            if (SystemEnv.IsAuthorized)
             {
                 MainPage = new Welcome();
             }
@@ -20,5 +20,6 @@ namespace LibraryManagementSystem
 
             MainPage = new AppShell();
         }
+
     }
 }
