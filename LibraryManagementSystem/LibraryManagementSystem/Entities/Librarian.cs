@@ -15,7 +15,7 @@ namespace LibraryManagementSystem.Entities
         public Librarian(int userId, string firstName, string lastName, string email, string phoneNumber)
             : base(userId, firstName, lastName, email, phoneNumber)
         {
-            UserType = UserTypes.Administrator;
+            UserType = UserTypes.Librarian;
         }
     }
 }
