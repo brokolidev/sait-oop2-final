@@ -10,18 +10,11 @@ namespace LibraryManagementSystem.Entities
     {
         public Administrator()
         {
-            UserType = UserTypes.Administrator;
         }
 
-        public Administrator(string firstName, string lastName, string email, string password, string phoneNumber)
-            : base(firstName, lastName, email, password, phoneNumber)
+        public Administrator(int userId, string firstName, string lastName, string email, string phoneNumber)
+            : base(userId, firstName, lastName, email, phoneNumber)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Password = password;
-            PhoneNumber = phoneNumber;
-
             UserType = UserTypes.Administrator;
         }
 
