@@ -48,4 +48,9 @@ public partial class InventoryPage : ContentPage
     {
         Shell.Current.Navigation.PopToRootAsync();
     }
+
+    private void AddInvenButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(AddInventoryPage));
+    }
 }
