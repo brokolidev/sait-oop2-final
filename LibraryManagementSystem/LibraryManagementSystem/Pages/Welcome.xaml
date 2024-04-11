@@ -46,6 +46,8 @@
                 <!-- bind Welcome message property to this label -->
                 <Label FontSize="Body" x:Name="WelcomMessageLabel"></Label>
 
+                <Button Text="Logout" Clicked="LogoutButton_Clicked" Margin="0, 15, 0, 0" BackgroundColor="DarkRed" />
+
             </VerticalStackLayout>
 
         </HorizontalStackLayout>

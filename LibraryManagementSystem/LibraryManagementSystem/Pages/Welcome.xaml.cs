@@ -24,4 +24,12 @@ public partial class Welcome : ContentPage
     {
         Shell.Current.GoToAsync(nameof(InventoryPage));
     }
+
+    private void LogoutButton_Clicked(object sender, EventArgs e)
+    {
+        SystemEnv.LoggedInUser = null;
+        SystemEnv.IsAuthorized = false;
+        
+        Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+    }
 }
