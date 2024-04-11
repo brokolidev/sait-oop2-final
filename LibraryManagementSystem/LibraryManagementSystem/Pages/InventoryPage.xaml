@@ -81,11 +81,11 @@
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Manage Inventory</Label>
                 <StackLayout Padding="10">
                     <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
-                    <Entry x:Name="titleEntry" Placeholder="Title"  />
-                    <Entry x:Name="authorEntry" Placeholder="Author" />
-                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" />
-                    <Entry x:Name="isbnEntry" Placeholder="ISBN" />
-                    <Button Text="Add Book" />
+                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
+                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
+                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
+                    <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
+                    <Button Text="Add Book" WidthRequest="200" />
                 </StackLayout>
             </VerticalStackLayout>
 
