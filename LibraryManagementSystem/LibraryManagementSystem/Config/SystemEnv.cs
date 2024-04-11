@@ -6,19 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Config
 {
-    public class SystemEnv
+    public static class SystemEnv
     {
-        public int RentalDaysForStudent { get; set; }
-        public int RentalDaysForInstructor { get; set; }
-
-
-        public SystemEnv()
-        {
-            // Default values
-            // This can be changed by the administrator
-            // need to be stored in the database
-            RentalDaysForStudent = 14;
-            RentalDaysForInstructor = 30;
-        }
+        public static readonly int RentalDaysForStudent = 14;
+        public static readonly int RentalDaysForInstructor = 30;
     }
 }

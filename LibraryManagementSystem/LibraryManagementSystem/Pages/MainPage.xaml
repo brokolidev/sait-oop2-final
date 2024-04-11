@@ -48,12 +48,12 @@
 
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Username</Label>
-                <Entry Placeholder="Username" />
-
-
+                <Entry Placeholder="Username" x:Name="UsernameEntry" />
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Password</Label>
-                <Entry Placeholder="Password" IsPassword="True" />
+                <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" />
+
+                <Button Text="Login" BackgroundColor="BlueViolet" Margin="0, 15, 0, 0" TextColor="White" Clicked="LoginButton_Clicked"/>
 
             </VerticalStackLayout>
 
