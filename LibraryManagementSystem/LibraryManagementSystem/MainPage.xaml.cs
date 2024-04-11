@@ -1,3 +1,5 @@
+using LibraryManagementSystem.Config;
+
 namespace LibraryManagementSystem.Pages
 {
     public partial class MainPage : ContentPage
@@ -12,9 +14,29 @@ namespace LibraryManagementSystem.Pages
             Shell.Current.GoToAsync(nameof(InventoryPage));
         }
 
+        // Login
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            //TODO: Implement the login functionality
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
+
+            // null check
+            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                DisplayAlert("Error", "Please enter a username and password", "OK");
+                return;
+            }
+
+            // check if the username and password are correct
+            // this will need to be replaced with a database check
+            if(username == "admin" && password == "admin")
+            {
+                SystemEnv.GetIsAuthorized = true;
+            }
+            else
+            {
+                DisplayAlert("Error", "Invalid username or password", "OK");
+            }
         }
     }
 }
