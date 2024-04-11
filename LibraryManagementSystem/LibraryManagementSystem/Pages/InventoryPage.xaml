@@ -77,8 +77,16 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
                 </HorizontalStackLayout>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Manage Inventory</Label>
+                <StackLayout Padding="10">
+                    <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
+                    <Entry x:Name="titleEntry" Placeholder="Title"  />
+                    <Entry x:Name="authorEntry" Placeholder="Author" />
+                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" />
+                    <Entry x:Name="isbnEntry" Placeholder="ISBN" />
+                    <Button Text="Add Book" />
+                </StackLayout>
             </VerticalStackLayout>
 
         </HorizontalStackLayout>
