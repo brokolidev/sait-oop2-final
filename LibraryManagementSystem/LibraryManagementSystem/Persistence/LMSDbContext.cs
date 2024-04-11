@@ -30,5 +30,15 @@ namespace LibraryManagementSystem.Persistence
         {
             optionsBuilder.UseSqlite($"Data source={DbPath}");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Student>();
+            modelBuilder.Entity<Instructor>();
+            modelBuilder.Entity<Librarian>();
+            modelBuilder.Entity<Administrator>();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

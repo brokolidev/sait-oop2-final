@@ -8,16 +8,10 @@ namespace LibraryManagementSystem.Entities
 {
     public class Student : User
     {
-        public Student()
-        {
-            UserType = UserTypes.Student;
-        }
+        public Student() { }
 
         public Student(string firstName, string lastName, string email, string password, string phoneNumber)
-            : base(firstName, lastName, email, password, phoneNumber)
-        {
-            UserType = UserTypes.Student;
-        }
+            : base(firstName, lastName, email, password, phoneNumber) { }
 
     }
 }

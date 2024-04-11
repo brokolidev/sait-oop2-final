@@ -8,15 +8,9 @@ namespace LibraryManagementSystem.Entities
 {
     public class Librarian : User
     {
-        public Librarian() : base() 
-        {
-            UserType = UserTypes.Librarian;
-        }
+        public Librarian() : base() { }
 
         public Librarian(string firstName, string lastName, string email,string password, string phoneNumber)
-            : base(firstName, lastName, email, password, phoneNumber)
-        {
-            UserType = UserTypes.Librarian;
-        }
+            : base(firstName, lastName, email, password, phoneNumber) { }
     }
 }

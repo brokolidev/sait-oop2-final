@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +11,34 @@ namespace LibraryManagementSystem.Entities
     public abstract class User
     {
 
+        /*
+         * TODO:
+         *    - change all required to [NotNull]
+         *        - This will make the entities work better with the rest of the program
+         *    - DateTime should be TimeOnly. this will keep the data consistent.
+         */
+
+        [Key]
         public int UserId { get; set; }
-        public required string FirstName { get; set; }
-        public required string LastName { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
-        public required string PhoneNumber { get; set; }
-        public required UserTypes UserType { get; set; }
-        public required DateTime RegisteredAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
+
+        [NotNull]
+        public string FirstName { get; set; } = String.Empty;
+
+        [NotNull]
+        public string LastName { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Email { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Password { get; set; } = String.Empty;
+
+        [NotNull]
+        public string PhoneNumber { get; set; } = String.Empty;
+
+        [NotNull]
+        public DateOnly DateRegistered { get; set; } = new();
+        public DateOnly? DateUpdated { get; set; }
         public bool? IsBlocked { get; set; }
 
 

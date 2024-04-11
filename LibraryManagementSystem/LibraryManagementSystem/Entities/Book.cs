@@ -11,16 +11,28 @@ namespace LibraryManagementSystem.Entities
     public class Book
     {
         [Key]
-        public required string ISBN { get; set; }
-        public required string Title { get; set; }
-        public required string Author { get; set; }
+        [NotNull]
+        public string ISBN { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Title { get; set; } = String.Empty;
+
+        [NotNull]
+        public string Author { get; set; } = String.Empty;
         public string? Publisher { get; set; }
-        public required Category Category { get; set; }
-        public required DateTime DatePublished { get; set; }
-        public required DateTime DateRegistered { get; set; }
-        public DateTime? DateUpdated { get; set; }
+        
+        [NotNull]
+        public Category Category { get; set; } = new();
+        
+        [NotNull]
+        public DateOnly DatePublished { get; set; } = new();
+        
+        [NotNull]
+        public DateOnly DateRegistered { get; set; } = new();
+        public DateOnly? DateUpdated { get; set; }
         public int? Total { get; set; }
         public int? CheckedOut { get; set; }
 
+        public Book() { }
     }
 }
