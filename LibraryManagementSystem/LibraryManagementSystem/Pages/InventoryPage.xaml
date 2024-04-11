@@ -41,11 +41,27 @@
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20">
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
 
-        <Label FontSize="Header">Welcome to SAIT Library</Label>
-                
-    </VerticalStackLayout>
+                <Label FontSize="20">Manage Inventory Page</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
+                <HorizontalStackLayout Spacing="15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label>Category</Label>
+                        <Picker WidthRequest="200" BackgroundColor="LightGray"></Picker>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>Title</Label>
+                        <SearchBar Placeholder="Title"></SearchBar>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>Publish Year</Label>
+                        <SearchBar Placeholder="Year"></SearchBar>
+                    </VerticalStackLayout>
+                    <Button Text="Check Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
 
         </HorizontalStackLayout>
     </ScrollView>
