@@ -39,7 +39,6 @@ namespace LibraryManagementSystem.Entities
             LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
-            UserType = userType;
 
             RegisteredAt = DateTime.Now;
             UpdatedAt = DateTime.Now;

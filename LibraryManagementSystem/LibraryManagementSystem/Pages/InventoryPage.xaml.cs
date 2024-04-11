@@ -1,11 +1,8 @@
-using LibraryManagementSystem.Config;
-using System.Diagnostics;
-
 namespace LibraryManagementSystem.Pages;
 
 public partial class InventoryPage : ContentPage
 {
-	public InventoryPage()
+    public InventoryPage()
 	{
 		InitializeComponent();
 	}
