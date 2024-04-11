@@ -62,10 +62,10 @@ namespace LibraryManagementSystem.Pages
             }
 
             // create administator instance
-            Administrator admin = new Administrator(1, "Ted", "Choi", "ted@gmail.com", "123-1234-1111");
-            Librarian librarian = new Librarian(2, "Dan", "Choi", "dan@gmail.com", "123-1234-2222");
-            Instructor instructor = new Instructor(3, "Bill", "Choi", "bill@gmail.com", "123-1234-3333");
-            Student student = new Student(4, "Mac", "Choi", "mac@gmail.com", "123-1234-4444");
+            Administrator admin = new("Ted", "Choi", "ted@gmail.com", "test", "123-1234-1111");
+            Librarian librarian = new("Dan", "Choi", "dan@gmail.com", "test", "123-1234-2222");
+            Instructor instructor = new("Bill", "Choi", "bill@gmail.com", "test", "123-1234-3333");
+            Student student = new("Mac", "Choi", "mac@gmail.com", "test", "123-1234-4444");
 
             switch (username)
             {

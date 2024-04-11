@@ -29,19 +29,19 @@ public partial class InventoryPage : ContentPage
 
         // set buttons by user types
         RentalButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Student ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Instructor;
+            SystemEnv.LoggedInUser is Student ||
+            SystemEnv.LoggedInUser is Instructor;
 
         CustomerButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Librarian ||
+            SystemEnv.LoggedInUser is Administrator;
 
         InventoryButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Librarian ||
+            SystemEnv.LoggedInUser is Administrator;
 
         SystemButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+            SystemEnv.LoggedInUser is Administrator;
     }
 
     private void HomeButton_Clicked(object sender, EventArgs e)
