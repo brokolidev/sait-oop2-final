@@ -11,6 +11,8 @@ namespace LibraryManagementSystem
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(InventoryPage), typeof(InventoryPage));
             Routing.RegisterRoute(nameof(Welcome), typeof(Welcome));
+            Routing.RegisterRoute(nameof(AddInventoryPage), typeof(AddInventoryPage));
+
         }
     }
 }

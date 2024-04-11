@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LibraryManagementSystem.Pages.InventoryPage"
-             Title="InventoryPage">
-
+             x:Class="LibraryManagementSystem.Pages.AddInventoryPage"
+             Title="AddInventoryPage">
     <ScrollView>
         <HorizontalStackLayout>
 
@@ -48,38 +47,7 @@
 
                 <Label FontSize="20">Manage Inventory Page</Label>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
-                <HorizontalStackLayout Spacing="15">
-                    <VerticalStackLayout Spacing="10">
-                        <Label>Category</Label>
-                        <Picker WidthRequest="200" BackgroundColor="LightGray"></Picker>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Spacing="10" WidthRequest="200">
-                        <Label>Title</Label>
-                        <SearchBar Placeholder="Title"></SearchBar>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Spacing="10" WidthRequest="200">
-                        <Label>Publish Year</Label>
-                        <SearchBar Placeholder="Year"></SearchBar>
-                    </VerticalStackLayout>
-                    <Button Text="Check Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
-                </HorizontalStackLayout>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
-                <HorizontalStackLayout>
-                    <ListView x:Name="BooksListView">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Title}"
-                                          Detail="{Binding Author}" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Inventory</Label>
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                    <Button Text="Add Inventory" WidthRequest="200" Margin="0,0,15,0" Clicked="AddInvenButton_Clicked"></Button>
-                    <Button Text="Edit Inventory"  WidthRequest="200" Margin="0,0,15,0"></Button>
-                    <Button Text="Delete Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
-                </HorizontalStackLayout>
                 <StackLayout Padding="10">
                     <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
                     <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
