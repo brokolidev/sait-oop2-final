@@ -18,29 +18,29 @@
     HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55"
-                    WidthRequest="200"
-                    Text="Home"
-                    Clicked="HomeButton_Clicked" />
+                        WidthRequest="200"
+                        Text="Home"
+                        Clicked="HomeButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55"
-    WidthRequest="200"
-    x:Name="RentalButton"
-    Text="Rental" />
+                        WidthRequest="200"
+                        x:Name="RentalButton"
+                        Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55"
-    WidthRequest="200"
-    x:Name="CustomerButton"
-    Text="Manage Customer" />
+                        WidthRequest="200"
+                        x:Name="CustomerButton"
+                        Text="Manage Customer" />
 
                 <Button BackgroundColor="#1B1A55"
-    x:Name="InventoryButton"
-    WidthRequest="200"
-    Text="Manage Inventory" />
+                        x:Name="InventoryButton"
+                        WidthRequest="200"
+                        Text="Manage Inventory" />
 
                 <Button BackgroundColor="#1B1A55"
-    x:Name="SystemButton"
-    WidthRequest="200"
-    Text="Mange System" />
+                        x:Name="SystemButton"
+                        WidthRequest="200"
+                        Text="Mange System" />
 
             </VerticalStackLayout>
 
@@ -74,7 +74,12 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </HorizontalStackLayout>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Manage Inventory</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Inventory</Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Button Text="Add Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
+                    <Button Text="Edit Inventory"  WidthRequest="200" Margin="0,0,15,0"></Button>
+                    <Button Text="Delete Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
+                </HorizontalStackLayout>
                 <StackLayout Padding="10">
                     <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
                     <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
@@ -84,7 +89,6 @@
                     <Button Text="Add Book" WidthRequest="200" />
                 </StackLayout>
             </VerticalStackLayout>
-
         </HorizontalStackLayout>
     </ScrollView>
 
