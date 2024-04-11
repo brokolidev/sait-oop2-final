@@ -45,9 +45,6 @@
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
 
-                <Label FontSize="20">Manage Inventory Page</Label>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Inventory</Label>
                 <StackLayout Padding="10">
                     <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
                     <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
