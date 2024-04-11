@@ -40,6 +40,7 @@ namespace LibraryManagementSystem.Entities
         public DateOnly DateRegistered { get; set; } = new();
         public DateOnly? DateUpdated { get; set; }
         public bool? IsBlocked { get; set; }
+        public UserTypes UserType { get; set; }
 
 
         public enum UserTypes
@@ -54,8 +55,9 @@ namespace LibraryManagementSystem.Entities
         {
         }
 
-        public User(string firstName, string lastName, string email, string password, string phoneNumber)
+        public User(int userId, string firstName, string lastName, string email, string password, string phoneNumber)
         {
+            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;

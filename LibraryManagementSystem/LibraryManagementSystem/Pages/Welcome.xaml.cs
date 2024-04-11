@@ -17,28 +17,9 @@ public partial class Welcome : ContentPage
 
         // set welcome message
 
-        string userType = "";
-
-        if (SystemEnv.LoggedInUser is Student)
-        {
-            userType = "student";
-        }
-        else if (SystemEnv.LoggedInUser is Instructor)
-        {
-            userType = "instructor";
-        }
-        else if (SystemEnv.LoggedInUser is Librarian)
-        {
-            userType = "librarian";
-        }
-        else if (SystemEnv.LoggedInUser is Administrator)
-        {
-            userType = "administrator";
-        }
-
         WelcomMessageLabel.Text = $"Welcome " +
             $"{SystemEnv.LoggedInUser?.FirstName}," +
-            $" You are logged in as {userType}";
+            $" You are logged in as {SystemEnv.LoggedInUser?.UserType}";
 
         // set buttons by user types
         RentalButton.IsVisible = 
