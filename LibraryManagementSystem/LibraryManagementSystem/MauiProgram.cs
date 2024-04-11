@@ -1,5 +1,5 @@
-﻿using LibraryManagementSystem.Models;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using LibraryManagementSystem.Persistence;
 
 namespace LibraryManagementSystem
 {
@@ -15,6 +15,15 @@ namespace LibraryManagementSystem
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddDbContext<LMSDbContext>();
+
+            //this will need to be replaced by all of the pages that use the database
+            builder.Services.AddTransient<MainPage>();
+
+            var dbContext = new LMSDbContext();
+            dbContext.Database.EnsureCreated();
+            dbContext.Dispose();
 
 #if DEBUG
     		builder.Logging.AddDebug();

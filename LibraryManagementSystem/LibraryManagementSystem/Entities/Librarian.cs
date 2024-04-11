@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.Models
+namespace LibraryManagementSystem.Entities
 {
     public class Librarian : User
     {
         public Librarian() : base() 
         {
-            UserType = "Librarian";
+            UserType = UserTypes.Librarian;
         }
 
-        public Librarian(string firstName, string lastName, string email, string phoneNumber) : base(firstName, lastName, email, phoneNumber)
+        public Librarian(string firstName, string lastName, string email,string password, string phoneNumber)
+            : base(firstName, lastName, email, password, phoneNumber)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            UserType = "Librarian";
+            UserType = UserTypes.Librarian;
         }
     }
 }

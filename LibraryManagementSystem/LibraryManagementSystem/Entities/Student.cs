@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.Models
+namespace LibraryManagementSystem.Entities
 {
     public class Student : User
     {
         public Student()
         {
-            
+            UserType = UserTypes.Student;
         }
 
-        public Student(string firstName, string lastName, string email, string phoneNumber) : base(firstName, lastName, email, phoneNumber)
+        public Student(string firstName, string lastName, string email, string password, string phoneNumber)
+            : base(firstName, lastName, email, password, phoneNumber)
         {
-            UserType = "Student";
+            UserType = UserTypes.Student;
         }
 
     }
