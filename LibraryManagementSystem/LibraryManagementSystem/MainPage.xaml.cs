@@ -42,7 +42,8 @@ namespace LibraryManagementSystem.Pages
             // check if the username and password are correct
             if(TryLogin(username, password))
             {
-
+                // go to welcome page
+                Shell.Current.GoToAsync(nameof(Welcome));
             }
             else
             {
@@ -55,49 +56,46 @@ namespace LibraryManagementSystem.Pages
         private bool TryLogin(string username, string password)
         {
 
+            if(password != "pass")
+            {
+                return false;
+            }
+
             // create administator instance
             Administrator admin = new Administrator(1, "Ted", "Choi", "ted@gmail.com", "123-1234-1111");
             Librarian librarian = new Librarian(2, "Dan", "Choi", "dan@gmail.com", "123-1234-2222");
             Instructor instructor = new Instructor(3, "Bill", "Choi", "bill@gmail.com", "123-1234-3333");
             Student student = new Student(4, "Mac", "Choi", "mac@gmail.com", "123-1234-4444");
 
-            if (username == "admin" && password == "pass")
+            switch (username)
             {
-                LoggedIn("Ted", "Choi", User.UserTypes.Administrator);
-
-                Shell.Current.GoToAsync(nameof(Welcome));
-            }
-            else if (username == "student" && password == "pass")
-            {
-                LoggedIn("Dan", "Choi", User.UserTypes.Administrator);
-
-                Shell.Current.GoToAsync(nameof(Welcome));
-            }
-            else if (username == "librarian" && password == "pass")
-            {
-                LoggedIn("Bill", "Choi", User.UserTypes.Administrator);
-
-                Shell.Current.GoToAsync(nameof(Welcome));
-            }
-            else if (username == "instructor" && password == "pass")
-            {
-                LoggedIn("Mac", "Choi", User.UserTypes.Administrator);
-
-                Shell.Current.GoToAsync(nameof(Welcome));
+                case "admin":
+                    LoggedIn(admin);
+                    break;
+                case "librarian":
+                    LoggedIn(librarian);
+                    break;
+                case "instructor":
+                    LoggedIn(instructor);
+                    break;
+                case "student":
+                    LoggedIn(student);
+                    break;
+                default:
+                    return false;
             }
 
-            return false;
+            return true;
         }
 
-        private void LoggedIn(string userFirstName, string UserLastName, Enum userType)
+        // set the env variables
+        private void LoggedIn(User user)
         {
             SystemEnv.IsAuthorized = true;
 
             // set the env variables
             SystemEnv.IsAuthorized = true;
-            SystemEnv.GetLogedInUserFirstName = userFirstName;
-            SystemEnv.GetLogedInUserLastName = UserLastName;
-            SystemEnv.GetLogedInUserType = userType;
+            SystemEnv.LoggedInUser = user;
         }
     }
 }

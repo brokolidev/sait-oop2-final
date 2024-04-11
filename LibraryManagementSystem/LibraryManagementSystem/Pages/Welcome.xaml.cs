@@ -16,8 +16,8 @@ public partial class Welcome : ContentPage
 
         // set welcome message
         WelcomMessageLabel.Text = $"Welcome " +
-            $"{SystemEnv.GetLogedInUserFirstName} {SystemEnv.GetLogedInUserLastName}," +
-            $" You are logged in as {SystemEnv.GetLogedInUserType}";
+            $"{SystemEnv.LoggedInUser.FirstName}," +
+            $" You are logged in as {SystemEnv.LoggedInUser.UserType}";
     }
 
     private void InventoryButton_Clicked(object sender, EventArgs e)
