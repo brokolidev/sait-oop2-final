@@ -1,4 +1,7 @@
+using Contacts;
 using LibraryManagementSystem.Config;
+using LibraryManagementSystem.Entities;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace LibraryManagementSystem.Pages
 {
@@ -31,7 +34,16 @@ namespace LibraryManagementSystem.Pages
             // this will need to be replaced with a database check
             if(username == "admin" && password == "admin")
             {
+
+                // set the env variables
                 SystemEnv.GetIsAuthorized = true;
+                SystemEnv.GetLogedInUserFirstName = "Admin";
+                SystemEnv.GetLogedInUserLastName= "Admin";
+                SystemEnv.GetLogedInUserType = User.UserTypes.Administrator;
+
+
+                Shell.Current.GoToAsync(nameof(Welcome));
+                System.Diagnostics.Debug.WriteLine("Login successful");
             }
             else
             {

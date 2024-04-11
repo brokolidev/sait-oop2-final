@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryManagementSystem.Pages.Welcome"
+             Title="Welcome">
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <!-- Side Menu -->
+            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
+
+                <!-- Logo -->
+                <Label 
+            HeightRequest="100" WidthRequest="250"
+            FontSize="Header" TextColor="White"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center">Logo</Label>
+
+                <Button BackgroundColor="#1B1A55"
+            WidthRequest="200"
+            Text="Home" />
+
+                <Button BackgroundColor="#1B1A55"
+            WidthRequest="200"
+            Text="Rental" />
+
+                <Button BackgroundColor="#1B1A55"
+            WidthRequest="200"
+            Text="Manage Customer" />
+
+                <Button BackgroundColor="#1B1A55"
+            x:Name="InventoryButton"
+            WidthRequest="200"
+            Text="Manage Inventory"
+            Clicked="InventoryButton_Clicked"/>
+
+                <Button BackgroundColor="#1B1A55"
+            WidthRequest="200"
+            Text="Mange System" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Padding="20">
+
+                <Label FontSize="Header">Welcome to SAIT Library</Label>
+                <Label FontSize="Body">Now you are logged In as Administrator</Label>
+
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+    </ScrollView>
+</ContentPage>
