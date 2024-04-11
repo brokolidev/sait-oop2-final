@@ -10,13 +10,12 @@ namespace LibraryManagementSystem.Entities
     {
 
         public int UserId { get; set; }
-        public required string FirstName { get; set; }
-        public required string LastName { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
-        public required string PhoneNumber { get; set; }
-        public required UserTypes UserType { get; set; }
-        public required DateTime RegisteredAt { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public UserTypes UserType { get; set; }
+        public DateTime RegisteredAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public bool? IsBlocked { get; set; }
 
@@ -33,19 +32,17 @@ namespace LibraryManagementSystem.Entities
         {
         }
 
-        public User(string firstName, string lastName, string email, string password, string phoneNumber)
+        public User(int userId, string firstName, string lastName, string email, string phoneNumber)
         {
+            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            Password = password;
             PhoneNumber = phoneNumber;
 
-            IsBlocked = false;
             RegisteredAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
             IsBlocked = false;
         }
-
     }
 }

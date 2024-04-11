@@ -10,11 +10,10 @@ namespace LibraryManagementSystem.Entities
     {
         public Librarian() : base() 
         {
-            UserType = UserTypes.Librarian;
         }
 
-        public Librarian(string firstName, string lastName, string email,string password, string phoneNumber)
-            : base(firstName, lastName, email, password, phoneNumber)
+        public Librarian(int userId, string firstName, string lastName, string email, string phoneNumber)
+            : base(userId, firstName, lastName, email, phoneNumber)
         {
             UserType = UserTypes.Librarian;
         }
