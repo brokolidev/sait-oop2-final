@@ -32,6 +32,8 @@ namespace LibraryManagementSystem.Pages
             if(username == "admin" && password == "admin")
             {
                 SystemEnv.GetIsAuthorized = true;
+                Shell.Current.GoToAsync(nameof(Welcome));
+                System.Diagnostics.Debug.WriteLine("Login successful");
             }
             else
             {
