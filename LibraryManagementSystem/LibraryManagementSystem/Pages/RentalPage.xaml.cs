@@ -4,12 +4,12 @@ using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
 
-public partial class SystemPage : ContentPage
+public partial class RentalPage : ContentPage
 {
-    public SystemPage()
-    {
-        InitializeComponent();
-    }
+	public RentalPage()
+	{
+		InitializeComponent();
+	}
 
     protected override void OnAppearing()
     {
@@ -36,15 +36,4 @@ public partial class SystemPage : ContentPage
     {
         Shell.Current.Navigation.PopToRootAsync();
     }
-
-    private void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
-    private void CustomerButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(CustomerPage));
-    }
-
 }

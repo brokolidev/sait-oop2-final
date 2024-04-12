@@ -23,7 +23,8 @@
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
                     x:Name="RentalButton"
-                    Text="Rental" />
+                    Text="Rental" 
+                    Clicked="RentalButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
@@ -40,7 +41,7 @@
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     x:Name="SystemButton"
                     WidthRequest="200"
-                    Text="Mange System"
+                    Text="Manage System"
                     Clicked="SystemButton_Clicked"/>
 
             </VerticalStackLayout>
