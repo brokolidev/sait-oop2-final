@@ -38,6 +38,7 @@ public partial class Welcome : ContentPage
             SystemEnv.LoggedInUser is Administrator;
     }
 
+    // navigation buttons
     private void InventoryButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(InventoryPage));
@@ -59,6 +60,11 @@ public partial class Welcome : ContentPage
     private void SystemButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
+    }
+
+    private void RentalButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(RentalPage));
     }
 
 }

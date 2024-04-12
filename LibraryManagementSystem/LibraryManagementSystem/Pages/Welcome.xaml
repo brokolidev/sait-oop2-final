@@ -23,6 +23,7 @@
                 <Button BackgroundColor="#1B1A55"
                     WidthRequest="200"
                     x:Name="RentalButton"
+                    Clicked="RentalButton_Clicked"
                     Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55"
