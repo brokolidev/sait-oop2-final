@@ -47,13 +47,21 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
-                <Label Text="Add Inventory" FontSize="Title" HorizontalOptions="Start" Padding="10" />
+                <Label Text="Add Inventory" FontSize="Header" HorizontalOptions="Start" Padding="10" />
                 <StackLayout Padding="10">
-                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
-                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
-                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
+                    <Label Text="ISBN"></Label>
                     <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
-                    <Button Text="Add Book" WidthRequest="200" />
+                    <Label Text="Title"></Label>
+                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
+                    <Label Text="Author"></Label>
+                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
+                    <Label Text="Publisher"></Label>
+                    <Entry x:Name="publisherEntry" Placeholder="Publisher" Margin="0,0,0,10"/>
+                    <Label Text="Publish Date"></Label>
+                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
+                    <Picker x:Name="categoryPicker" Title="Select Category">
+                    </Picker>
+                    <Button Text="Save this book" x:Name="SaveBookButton" WidthRequest="200" Margin="0, 15, 0, 0" />
                 </StackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>
