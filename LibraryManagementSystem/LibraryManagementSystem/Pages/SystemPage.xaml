@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryManagementSystem.Pages.SystemPage"
+             Title="SystemPage">
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <!-- Side Menu -->
+            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
+
+                <!-- Logo -->
+                <Label 
+                HeightRequest="100" WidthRequest="250"
+                FontSize="Header" TextColor="White"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center">Logo</Label>
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    Text="Home"
+                    Clicked="HomeButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Text="Rental" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory"
+                    Clicked="InventoryButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+
+                <Label FontSize="20">Manage System</Label>
+
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,15">View System Logs</Label>
+
+                <!-- Filter options for viewing system logs-->
+                <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <Label Text="Log Type:" VerticalOptions="Center" />
+                    <Picker x:Name="LogTypePicker" WidthRequest="200">
+                        <Picker.Items>
+                            <x:String>All</x:String>
+                            <x:String>User Activity</x:String>
+                            <x:String>User Accounts</x:String>
+                            <x:String>Books</x:String>
+                            <x:String>Rentals</x:String>
+                            <x:String>Backup/Restore</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="From:" VerticalOptions="Center" Padding="20,0,0,0" />
+                    <DatePicker x:Name="StartDatePicker" WidthRequest="200" />
+                    <Label Text="To:" VerticalOptions="Center" Padding="10,0,0,0" />
+                    <DatePicker x:Name="EndDatePicker" WidthRequest="200" />
+
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
+                    <!-- View logs button -->
+                    <Button Text="View Logs" WidthRequest="200" />
+                </HorizontalStackLayout>
+
+
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,15">Reports and Analytics</Label>
+
+                <!-- Reports and analytics section -->
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <!-- Filter options -->
+                    <Label Text="Generate reports on:" VerticalOptions="Center" />
+                    <Picker x:Name="ReportsPicker" WidthRequest="200">
+                        <Picker.Items>
+                            <x:String>Library usage</x:String>
+                            <x:String>Book popularity</x:String>
+                            <x:String>Overdue books</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- Analyze options -->
+                    <Label Text="Analyze:" VerticalOptions="Center" Padding="20,0,0,0" />
+                    <Picker x:Name="AnalysisPicker" WidthRequest="200" >
+                        <Picker.Items>
+                            <x:String>Library performance metrics</x:String>
+                            <x:String>Trends</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
+                    <!-- View logs button -->
+                    <!-- Button for filtering and generating reports -->
+                    <Button Text="Generate" WidthRequest="200" />
+                </HorizontalStackLayout>
+
+
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,10">Backup and Restore</Label>
+
+                <!-- Backup and Restore Buttons -->
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="30">
+
+                    <!-- Backup button -->
+                    <Button Text="Backup System" WidthRequest="200" />
+
+                    <!-- Restore button -->
+                    <Button Text="Restore System" WidthRequest="200" />
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+
+
+        </HorizontalStackLayout>
+    </ScrollView>
+</ContentPage>

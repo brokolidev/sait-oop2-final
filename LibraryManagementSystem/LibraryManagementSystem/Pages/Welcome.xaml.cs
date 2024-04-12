@@ -56,4 +56,9 @@ public partial class Welcome : ContentPage
         Shell.Current.GoToAsync(nameof(CustomerPage));
     }
 
+    private void SystemButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(SystemPage));
+    }
+
 }

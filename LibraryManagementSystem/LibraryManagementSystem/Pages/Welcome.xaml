@@ -40,7 +40,8 @@
                 <Button BackgroundColor="#1B1A55"
                     x:Name="SystemButton"
                     WidthRequest="200"
-                    Text="Mange System" />
+                    Text="Mange System"
+                    Clicked="SystemButton_Clicked"/>
 
             </VerticalStackLayout>
 
