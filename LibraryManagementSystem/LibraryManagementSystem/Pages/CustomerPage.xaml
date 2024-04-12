@@ -48,39 +48,32 @@
 
             <VerticalStackLayout Padding="20" WidthRequest="1300" Spacing="10">
 
-                <Label FontSize="20">Manage Customer Page</Label>
+                <Label FontSize="Header">Manage Customer</Label>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Customer Finder</Label>
                 <HorizontalStackLayout Spacing="15">
-                    <VerticalStackLayout Spacing="10">
-                        <Label>Category</Label>
-                        <Picker WidthRequest="200" BackgroundColor="LightGray"></Picker>
-                    </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>First Name</Label>
-                        <SearchBar Placeholder="First Name"></SearchBar>
+                        <Entry Placeholder="First Name"></Entry>
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Last Name</Label>
-                        <SearchBar Placeholder="Last Name"></SearchBar>
+                        <Entry Placeholder="Last Name"></Entry>
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
-                        <Label>User ID</Label>
-                        <SearchBar Placeholder="ID"></SearchBar>
+                        <Label>Email</Label>
+                        <Entry Placeholder="Email"></Entry>
                     </VerticalStackLayout>
-                    <Button Text="Find Customer" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>Phone</Label>
+                        <Entry Placeholder="Phone Number"></Entry>
+                    </VerticalStackLayout>
+                    <Button Text="Filter Customer" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Result</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Customer List</Label>
                 <HorizontalStackLayout>
-                    <ListView x:Name="BooksListView">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Title}"
-                                          Detail="{Binding Author}" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                    <ListView x:Name="CustomerListView">
                     </ListView>
                 </HorizontalStackLayout>
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Customer</Label>
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
                     <Button Text="Add Customer" WidthRequest="200" Margin="0,0,15,0" Clicked="AddCustButton_Clicked"></Button>
                     <Button Text="Edit Customer"  WidthRequest="200" Margin="0,0,15,0"></Button>
