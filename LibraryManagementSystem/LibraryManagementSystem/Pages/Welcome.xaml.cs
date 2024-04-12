@@ -55,4 +55,5 @@ public partial class Welcome : ContentPage
     {
         Shell.Current.GoToAsync(nameof(CustomerPage));
     }
+
 }

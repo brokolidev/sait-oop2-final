@@ -34,7 +34,8 @@
                 <Button BackgroundColor="#1B1A55"
                         x:Name="InventoryButton"
                         WidthRequest="200"
-                        Text="Manage Inventory" />
+                        Text="Manage Inventory"
+                        Clicked="InventoryButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55"
                         x:Name="SystemButton"
@@ -79,7 +80,7 @@
                 </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Customer</Label>
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                    <Button Text="Add Customer" WidthRequest="200" Margin="0,0,15,0"></Button>
+                    <Button Text="Add Customer" WidthRequest="200" Margin="0,0,15,0" Clicked="AddCustButton_Clicked"></Button>
                     <Button Text="Edit Customer"  WidthRequest="200" Margin="0,0,15,0"></Button>
                     <Button Text="Delete Customer" WidthRequest="200" Margin="0,0,15,0"></Button>
                 </HorizontalStackLayout>
