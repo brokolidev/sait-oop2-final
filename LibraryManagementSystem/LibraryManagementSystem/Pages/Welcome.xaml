@@ -28,7 +28,8 @@
                 <Button BackgroundColor="#1B1A55"
                     WidthRequest="200"
                     x:Name="CustomerButton"
-                    Text="Manage Customer" />   
+                    Text="Manage Customer" 
+                    Clicked="CustomerButton_Clicked"/>   
 
                 <Button BackgroundColor="#1B1A55"
                     x:Name="InventoryButton"

@@ -50,4 +50,9 @@ public partial class Welcome : ContentPage
         
         Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }
+
+    private void CustomerButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(CustomerPage));
+    }
 }
