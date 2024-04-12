@@ -41,4 +41,10 @@ public partial class SystemPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(InventoryPage));
     }
+
+    private void CustomerButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(CustomerPage));
+    }
+
 }
