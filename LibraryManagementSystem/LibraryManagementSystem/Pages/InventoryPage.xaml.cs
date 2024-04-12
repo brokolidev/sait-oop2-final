@@ -44,14 +44,10 @@ public partial class InventoryPage : ContentPage
             SystemEnv.LoggedInUser is Administrator;
     }
 
+    // Navigation Buttons
     private void HomeButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.Navigation.PopToRootAsync();
-    }
-
-    private void AddInvenButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(AddInventoryPage));
     }
 
     private void InventoryButton_Clicked(object sender, EventArgs e)
@@ -67,5 +63,12 @@ public partial class InventoryPage : ContentPage
     private void SystemButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
+    }
+
+
+    // Add Buttons routing
+    private void AddInvenButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(AddInventoryPage));
     }
 }

@@ -49,8 +49,8 @@
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
 
-                <Label FontSize="20">Manage Inventory Page</Label>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
+                <Label FontSize="Header">Manage Inventory</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Finder</Label>
                 <HorizontalStackLayout Spacing="15">
                     <VerticalStackLayout Spacing="10">
                         <Label>Category</Label>
@@ -58,13 +58,13 @@
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Title</Label>
-                        <SearchBar Placeholder="Title"></SearchBar>
+                        <Entry Placeholder="Title"></Entry>
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Publish Year</Label>
-                        <SearchBar Placeholder="Year"></SearchBar>
+                        <Entry Placeholder="Year"></Entry>
                     </VerticalStackLayout>
-                    <Button Text="Check Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    <Button Text="Filter Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
                 <HorizontalStackLayout>
@@ -77,11 +77,8 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </HorizontalStackLayout>
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="10">Manage Inventory</Label>
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <HorizontalStackLayout HorizontalOptions="Start" Margin="0, 15, 0, 0">
                     <Button Text="Add Inventory" WidthRequest="200" Margin="0,0,15,0" Clicked="AddInvenButton_Clicked"></Button>
-                    <Button Text="Edit Inventory"  WidthRequest="200" Margin="0,0,15,0"></Button>
-                    <Button Text="Delete Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>
