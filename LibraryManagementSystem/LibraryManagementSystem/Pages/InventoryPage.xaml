@@ -46,7 +46,7 @@
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20" WidthRequest="1300" Spacing="10">
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
 
                 <Label FontSize="20">Manage Inventory Page</Label>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory Checker</Label>
@@ -82,14 +82,6 @@
                     <Button Text="Edit Inventory"  WidthRequest="200" Margin="0,0,15,0"></Button>
                     <Button Text="Delete Inventory" WidthRequest="200" Margin="0,0,15,0"></Button>
                 </HorizontalStackLayout>
-                <StackLayout Padding="10">
-                    <Label Text="Add New Book" FontAttributes="Bold" HorizontalOptions="Start" Padding="10" />
-                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
-                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
-                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
-                    <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
-                    <Button Text="Add Book" WidthRequest="200" />
-                </StackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>
     </ScrollView>
