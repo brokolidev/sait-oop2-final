@@ -61,7 +61,7 @@ public partial class AddInventoryPage : ContentPage
         Debug.WriteLine("Selected Category: " + selectedCategory.Name);
     }
 
-    private void SaveBookButton()
+    private void SaveButton_Clicked(object sender, EventArgs e)
     {
         // @TODO: save new book to database
         // after successfully saved the book, navigate back to InventoryPage

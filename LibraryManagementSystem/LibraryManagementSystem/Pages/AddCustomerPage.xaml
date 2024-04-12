@@ -47,15 +47,38 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
-                <Label Text="Add Customer" FontSize="Title" HorizontalOptions="Start" Padding="10" />
-                <StackLayout Padding="10">
-                    <Picker Title="Please Choose User Type" Margin="0,0,0,10"></Picker>
-                    <Entry x:Name="firstName" Placeholder="First Name" Margin="0,0,0,10" />
-                    <Entry x:Name="lastName" Placeholder="Last Name" Margin="0,0,0,10"/>
-                    <Entry x:Name="email" Placeholder="Email" Margin="0,0,0,10" />
-                    <Entry x:Name="phoneNumber" Placeholder="Phone Number" Margin="0,0,0,10" />
+                <Label Text="Add Customer" FontSize="Header" HorizontalOptions="Start" Padding="10" />
+                
+                <VerticalStackLayout Padding="10">
+                    
+                    <Picker Title="Please Choose User Type" x:Name="UserTypePicker" Margin="0,15,0,0">
+                        <Picker.Items>
+                            <x:String>Administrator</x:String>
+                            <x:String>Librarian</x:String>
+                            <x:String>Instructor</x:String>
+                            <x:String>Student</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    
+                    <Label Text="Personal Information" FontSize="Medium" Margin="0, 15, 0, 0" />
+
+                    <Label Text="Email" FontSize="Caption" Margin="0, 5, 0, 0" />
+                    <Entry x:Name="emailEntry" Placeholder="Email" Margin="0,0,0,10" />
+
+                    <Label Text="Password" FontSize="Caption" Margin="0, 5, 0, 0" />
+                    <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" Margin="0,0,0,10" />
+
+                    <Label Text="First Name" FontSize="Caption" Margin="0, 5, 0, 0" />
+                    <Entry x:Name="firstNameEntry" Placeholder="First Name" Margin="0,0,0,10" />
+                    
+                    <Label Text="Last Name" FontSize="Caption" Margin="0, 5, 0, 0" />
+                    <Entry x:Name="lastNameEntry" Placeholder="Last Name" Margin="0,0,0,10"/>
+
+                    <Label Text="Phone Number" FontSize="Caption" Margin="0, 5, 0, 0" />
+                    <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number" Margin="0,0,0,10" />
+                    
                     <Button Text="Add Customer" WidthRequest="200" />
-                </StackLayout>
+                </VerticalStackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>
     </ScrollView>

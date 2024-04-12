@@ -49,6 +49,8 @@
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
                 <Label Text="Add Inventory" FontSize="Header" HorizontalOptions="Start" Padding="10" />
                 <StackLayout Padding="10">
+                    <Picker x:Name="categoryPicker" Title="Select Category">
+                    </Picker>
                     <Label Text="ISBN"></Label>
                     <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
                     <Label Text="Title"></Label>
@@ -59,9 +61,7 @@
                     <Entry x:Name="publisherEntry" Placeholder="Publisher" Margin="0,0,0,10"/>
                     <Label Text="Publish Date"></Label>
                     <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
-                    <Picker x:Name="categoryPicker" Title="Select Category">
-                    </Picker>
-                    <Button Text="Save this book" x:Name="SaveBookButton" WidthRequest="200" Margin="0, 15, 0, 0" />
+                    <Button Text="Save this book" WidthRequest="200" Margin="0, 15, 0, 0" Clicked="SaveButton_Clicked" />
                 </StackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>
