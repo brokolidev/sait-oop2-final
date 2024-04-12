@@ -39,8 +39,47 @@
                         x:Name="SystemButton"
                         WidthRequest="200"
                         Text="Manage System" />
+            </VerticalStackLayout>
 
+            <!-- Main Content -->
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
 
+                <Label FontSize="20">Book Rental</Label>
+
+                <!-- Search book to check availability-->
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Search for Book Availability</Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <!-- Search criteria -->
+                    <Entry Placeholder="Book Title" x:Name="BookTitleEntry" WidthRequest="200"/>
+                    <Entry Placeholder="Author First Name" x:Name="AuthorFirstNameEntry" WidthRequest="200"/>
+                    <Entry Placeholder="Author Last Name" x:Name="AuthorLastNameEntry" WidthRequest="200"/>
+                    <Entry Placeholder="ISBN" x:Name="IsbnEntry" WidthRequest="200"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
+                    <!-- Search button -->
+                    <Button Text="Search" WidthRequest="200"/>
+                </HorizontalStackLayout>
+
+                <!-- Shows list of all available books, can add filters -->
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,0">Available Books</Label>
+                <!-- Filters -->
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <Label Text="Category:" VerticalOptions="Center" />
+                    <Picker x:Name="CategoryPicker" WidthRequest="200">
+
+                    </Picker>
+
+                    <Label Text="Author Last Name:" VerticalOptions="Center" Margin="20,0,0,0" />
+                    <Picker x:Name="AuthorLastNamePicker" WidthRequest="200">
+
+                    </Picker>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
+                    <!-- Search button -->
+                    <Button Text="View Available Books" WidthRequest="200"/>
+                </HorizontalStackLayout>
 
             </VerticalStackLayout>
         </HorizontalStackLayout>
