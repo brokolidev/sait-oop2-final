@@ -69,7 +69,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <HorizontalStackLayout Spacing="10" Padding="20">
+                                    <HorizontalStackLayout Spacing="10" Padding="10">
                                         <Label Text="{Binding ISBN}" FontSize="Small" />
                                         <Label Text="/" FontSize="Small" />
                                         <Label Text="{Binding Title}" FontSize="Small" />

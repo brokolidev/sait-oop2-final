@@ -64,11 +64,6 @@
                     </VerticalStackLayout>
                     
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
-                        <Label>Last Name</Label>
-                        <Entry Placeholder="Last Name"></Entry>
-                    </VerticalStackLayout>
-                    
-                    <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Email</Label>
                         <Entry Placeholder="Email"></Entry>
                     </VerticalStackLayout>
@@ -85,7 +80,25 @@
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Customer List</Label>
                 
                 <HorizontalStackLayout>
-                    <ListView x:Name="CustomerListView">
+                    <ListView x:Name="CustomerListView" SeparatorColor="AliceBlue">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <HorizontalStackLayout Spacing="10" Padding="10">
+                                        <Label Text="{Binding UserId, StringFormat='{0}. '}" FontSize="Small" />
+                                        <Label Text="{Binding UserType, StringFormat='{0} |'}" FontSize="Small" />
+                                        <Label Text="{Binding FirstName, StringFormat='{0},'}" FontSize="Small" />
+                                        <Label Text="{Binding LastName}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Email}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding PhoneNumber}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding IsBlocked}" FontSize="Small" />
+                                    </HorizontalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </HorizontalStackLayout>
                 
