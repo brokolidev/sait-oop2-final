@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Persistence.Controllers
 {
@@ -59,9 +60,9 @@ namespace LibraryManagementSystem.Persistence.Controllers
             //if there are filtered, then the where clauses will act and filter on those.
             List<User> usersFound = [.. _context.Users
                 .Where(item => item.UserType == (userType ?? item.UserType))
-                .Where(item => item.FirstName == (firstName == "" ? item.FirstName : firstName))
-                .Where(item => item.Email == (email == "" ? item.Email : email))
-                .Where(item => item.PhoneNumber == (phone == "" ? item.PhoneNumber : phone))];
+                .Where(item => EF.Functions.Like(item.FirstName.ToLower(), "%" + (firstName == "" ? item.FirstName : firstName.ToLower()) + "%"))
+                .Where(item => EF.Functions.Like(item.Email.ToLower(), "%" + (email == "" ? item.Email.ToLower() : email.ToLower()) + "%"))
+                .Where(item => EF.Functions.Like(item.PhoneNumber, "%" + (phone == "" ? item.PhoneNumber : phone) + "%"))];
 
             return usersFound;
         }

@@ -68,7 +68,8 @@ namespace LibraryManagementSystem.Persistence.Controllers
             //if there are no filters, then all will be returned
             //if there are filtered, then the where clauses will act and filter on those.
             List<Book> booksFound = [.. _context.Books
-                .Where(item => item.Title == (title == "" ? item.Title : title))
+                .Include("Category")
+                .Where(item => EF.Functions.Like(item.Title.ToLower(), "%" + (title == "" ? item.Title.ToLower() : title.ToLower()) + "%"))
                 .Where(item => item.CategoryId == (category == null ? item.CategoryId : category.CategoryId))];
 
             return booksFound;
