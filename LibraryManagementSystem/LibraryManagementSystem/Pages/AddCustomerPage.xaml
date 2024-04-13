@@ -69,7 +69,7 @@
                     <Label Text="Phone Number" />
                     <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number" Margin="0,0,0,10" />
 
-                    <Button Text="Add Customer" Clicked="SaveButton_Clicked" WidthRequest="200" />
+                    <Button Text="Add New User" Clicked="SaveButton_Clicked" WidthRequest="200" />
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </HorizontalStackLayout>

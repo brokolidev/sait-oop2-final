@@ -51,8 +51,8 @@ public partial class BookDetail : ContentPage
     private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
         // confirm delete
-        bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
-        
+        bool answer = await DisplayAlert("Question?", "Really wanna delete?", "Yes", "No");
+
         if (answer)
         {
             BookController bookController = new BookController();

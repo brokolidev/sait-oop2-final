@@ -79,8 +79,8 @@ public partial class CustomerPage : ContentPage
 
         Debug.WriteLine($"{selectedUser.UserId} / {selectedUser.FirstName} / {selectedUser.LastName}");
 
-        //Shell.Current.GoToAsync($"{nameof(CustomerDetail)}" +
-        //               $"?UserID={selectedUser.UserID}");
+        Shell.Current.GoToAsync($"{nameof(UserDetail)}" +
+                       $"?Id={selectedUser.UserId}");
     }
 
     // Main navigation buttons

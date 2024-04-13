@@ -113,7 +113,6 @@ public partial class AddCustomerPage : ContentPage
     }
 
 
-
     // Navigation buttons
     private void HomeButton_Clicked(object sender, EventArgs e)
     {

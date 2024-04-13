@@ -73,7 +73,7 @@
                         <Entry Placeholder="Phone Number"></Entry>
                     </VerticalStackLayout>
                     
-                    <Button Text="Filter Customer" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    <Button Text="Filter User" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                     
                 </HorizontalStackLayout>
                 
@@ -102,7 +102,7 @@
                     </ListView>
                 </HorizontalStackLayout>
                 
-                <Button Text="Add New Customer" WidthRequest="200" Margin="0,15,0,0" Clicked="AddCustButton_Clicked"></Button>
+                <Button Text="Add New User" WidthRequest="200" Margin="0,15,0,0" Clicked="AddCustButton_Clicked"></Button>
             </VerticalStackLayout>
         </HorizontalStackLayout>
     </ScrollView>
