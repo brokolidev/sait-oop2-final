@@ -26,6 +26,7 @@ public partial class UserEdit : ContentPage
         }
     }
 
+    // Set User Details
     private void SetUserDetails()
     {
         firstNameEntry.Text = user.FirstName;
@@ -39,17 +40,34 @@ public partial class UserEdit : ContentPage
     // event handler for update button
     private void UpdateButton_Clicked(object sender, EventArgs e)
     {
-        //// update user
-        //user.Name = nameEntry.Text;
-        //user.Username = usernameEntry.Text;
-        //user.Password = passwordEntry.Text;
-        //user.UserType = selectedUserType;
+        // validate other text fields
+        if (string.IsNullOrEmpty(firstNameEntry.Text) || string.IsNullOrEmpty(lastNameEntry.Text) || string.IsNullOrEmpty(emailEntry.Text) || string.IsNullOrEmpty(phoneNumberEntry.Text))
+        {
+            DisplayAlert("Error", "Please fill in all fields", "OK");
+            return;
+        }
 
-        //UserController userController = new UserController();
-        //userController.UpdateUser(user);
+        // update user
+        user.FirstName = firstNameEntry.Text;
+        user.LastName = lastNameEntry.Text;
+        user.Email = emailEntry.Text;
+        user.PhoneNumber = phoneNumberEntry.Text;
+        user.UserType = selectedUserType;
+        user.IsBlocked = isBlockedCheckBox.IsChecked;
+        
+        // @TODO: validate email
 
-        //// navigate back to user page
-        //Shell.Current.GoToAsync(nameof(UserPage));
+        // @TODO: validate password
+        if(!string.IsNullOrEmpty(passwordEntry.Text))
+        {
+            user.Password = passwordEntry.Text;
+        }
+
+        UserController userController = new UserController();
+        userController.UpdateUser(user);
+
+        // navigate back to user page
+        Shell.Current.GoToAsync(nameof(CustomerPage));
     }
 
     // event handler for cancel button
@@ -57,6 +75,20 @@ public partial class UserEdit : ContentPage
     {
         // navigate back to user page
         Shell.Current.GoToAsync(nameof(CustomerPage));
+    }
+
+    // Set User Types
+    private void SetUserTypes()
+    {
+        UserTypePicker.ItemsSource = Enum.GetValues(typeof(User.UserTypes));
+        UserTypePicker.SelectedItem = user.UserType;
+        UserTypePicker.SelectedIndexChanged += OnUserTypeIndexChanged;
+    }
+
+    // Event handler for user type selected
+    private void OnUserTypeIndexChanged(object sender, EventArgs e)
+    {
+        selectedUserType = (User.UserTypes)UserTypePicker.SelectedItem;
     }
 
 
@@ -80,6 +112,9 @@ public partial class UserEdit : ContentPage
 
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
+
+        // set user type
+        SetUserTypes();
     }
 
 
