@@ -31,6 +31,8 @@ namespace LibraryManagementSystem.Persistence
             optionsBuilder.UseSqlite($"Data source={DbPath}");
         }
 
+
+        //general Solution found here: https://learn.microsoft.com/en-us/ef/core/modeling/inheritance 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>();

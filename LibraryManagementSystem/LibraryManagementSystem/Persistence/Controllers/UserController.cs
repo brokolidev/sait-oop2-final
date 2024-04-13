@@ -56,6 +56,8 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// <returns>A <c>List&lt;&lt;<see cref="User"/>&gt;&gt;</c> of all of the <see cref="User"/> objects in the database</returns>
         public List<User> GetAllUsers(User.UserTypes? userType = null, string firstName = "", string email = "", string phone = "")
         {
+
+            //Found the like method here: https://stackoverflow.com/questions/45708715/entity-framework-ef-functions-like-vs-string-contains
             //if there are no filters, then all will be returned
             //if there are filtered, then the where clauses will act and filter on those.
             List<User> usersFound = [.. _context.Users

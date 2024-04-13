@@ -19,6 +19,8 @@ namespace LibraryManagementSystem
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+
+            //Solution found here: https://youtu.be/sS1xej5YoLs?si=SL5NwkWxUoBW7FRK&t=471
             builder.Services.AddDbContext<LMSDbContext>();
 
             //this will need to be replaced by all of the pages that use the database
