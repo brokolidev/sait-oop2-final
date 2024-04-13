@@ -69,7 +69,7 @@
                     
                 <Button Text="Add this book" WidthRequest="200" Clicked="SaveButton_Clicked" />
 
-                <Button Text="Cancel" WidthRequest="200" BackgroundColor="DarkMagenta" Clicked="CancelButton_Clicked" />
+                <Button Text="Back" WidthRequest="200" BackgroundColor="DarkMagenta" Clicked="CancelButton_Clicked" />
             </VerticalStackLayout>
                 
         </HorizontalStackLayout>

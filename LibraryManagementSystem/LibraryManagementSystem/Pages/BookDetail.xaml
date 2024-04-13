@@ -77,13 +77,13 @@
                 <Button BackgroundColor="DarkRed" TextColor="White"
                     WidthRequest="200"
                     Clicked="DeleteButton_Clicked"
-                    Text="Cancel" />
+                    Text="Delete" />
 
                 <Button BackgroundColor="DarkMagenta" TextColor="White"
                     WidthRequest="200"
                     x:Name="CancelButton"
                     Clicked="CancelButton_Clicked"
-                    Text="Cancel" />
+                    Text="Back" />
             </VerticalStackLayout>
 
         </HorizontalStackLayout>

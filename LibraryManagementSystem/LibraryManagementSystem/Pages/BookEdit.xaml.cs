@@ -76,7 +76,7 @@ public partial class BookEdit : ContentPage
         book.DatePublished = DateOnly.Parse(publishDateEntry.Text);
 
         // set category
-        book.CategoryId = selectedCategory.CategoryId;
+        book.Category = selectedCategory;
 
         // update date updated
         book.DateUpdated = DateOnly.FromDateTime(DateTime.Now);
