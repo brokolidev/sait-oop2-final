@@ -8,7 +8,8 @@ namespace LibraryManagementSystem.Pages;
 public partial class BookEdit : ContentPage
 {
     private Book book;
-    List<Category> categories;
+    private List<Category> categories;
+    private Category selectedCategory;
 
     private void SetCategories()
     {
@@ -28,10 +29,7 @@ public partial class BookEdit : ContentPage
     private void OnCategoryIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        int selectedIndex = picker.SelectedIndex;
-
-        Category selectedCategory = categories[selectedIndex];
-        Debug.WriteLine("Selected Category: " + selectedCategory.Name);
+        selectedCategory = (Category)picker.SelectedItem;
     }
 
 
@@ -69,8 +67,23 @@ public partial class BookEdit : ContentPage
     // handle updating book button
     private void UpdateButton_Clicked(object sender, EventArgs e)
     {
+
         BookController bookController = new BookController();
+        
+        book.Title = titleEntry.Text;
+        book.Author = authorEntry.Text;
+        book.Publisher = publisherEntry.Text;
+        book.DatePublished = DateOnly.Parse(publishDateEntry.Text);
+
+        // set category
+        book.CategoryId = selectedCategory.CategoryId;
+
+        // update date updated
+        book.DateUpdated = DateOnly.FromDateTime(DateTime.Now);
+
         bookController.UpdateBook(book);
+
+        // go back to inventory page after updating book
         Shell.Current.GoToAsync(nameof(InventoryPage));
     }
 

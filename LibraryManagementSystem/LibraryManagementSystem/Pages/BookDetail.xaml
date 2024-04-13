@@ -53,7 +53,8 @@
 
                 <TableView Intent="Data" RowHeight="50">
                     <TableRoot>
-                        <TableSection x:Name="Title">
+                        <TableSection>
+                            <TextCell x:Name="Title" Text="Title" />
                             <TextCell x:Name="Category" Text="Category" />
                             <TextCell x:Name="ISBN" Text="ISBN" />
                             <TextCell x:Name="Author" Text="Author" />

@@ -28,6 +28,7 @@ public partial class BookDetail : ContentPage
     // set book details
     private void SetBookDetails()
     {
+        Title.Detail = book.Title;
         ISBN.Detail = book.ISBN;
         Author.Detail = book.Author;
         Publisher.Detail = book.Publisher;
