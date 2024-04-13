@@ -54,6 +54,12 @@ public partial class BookDetail : ContentPage
         Shell.Current.GoToAsync(nameof(InventoryPage));
     }
 
+    // go to edit page
+    private void EditButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync($"{nameof(BookEdit)}?ISBN={book.ISBN}");
+    }
+
 
     // navigation buttons
     private void HomeButton_Clicked(object sender, EventArgs e)

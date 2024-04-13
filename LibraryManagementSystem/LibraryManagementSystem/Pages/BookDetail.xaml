@@ -68,6 +68,7 @@
                 </TableView>
 
                 <Button BackgroundColor="DarkBlue" TextColor="White"
+                    Clicked="EditButton_Clicked"
                     x:Name="EditButton"
                     Text="Edit" />
                 
