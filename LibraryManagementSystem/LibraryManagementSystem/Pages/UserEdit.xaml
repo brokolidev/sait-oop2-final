@@ -3,10 +3,79 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryManagementSystem.Pages.UserEdit"
              Title="UserEdit">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <!-- Side Menu -->
+            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
+
+                <!-- Logo -->
+                <Label 
+                    HeightRequest="100" WidthRequest="250"
+                    FontSize="Header" TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center">Logo</Label>
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    Text="Home"
+                    Clicked="HomeButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Text="Rental" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer"
+                    Clicked="CustomerButton_Clicked"/>
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory"
+                    Clicked="InventoryButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System"
+                    Clicked="SystemButton_Clicked"/>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15">
+                <Label Text="Edit Book" FontSize="Header" HorizontalOptions="Start" />
+
+                <Picker x:Name="UserTypePicker" Title="Select User Type">
+                </Picker>
+
+                <Label Text="Firs tName"></Label>
+                <Entry x:Name="firstNameEntry" Placeholder="First Name" />
+
+                <Label Text="Last Name"></Label>
+                <Entry x:Name="lastNameEntry" Placeholder="Last Name" />
+
+                <Label Text="Email"></Label>
+                <Entry x:Name="emailEntry" Placeholder="Email" />
+
+                <Label Text="Password"></Label>
+                <Entry x:Name="passwordEntry" Placeholder="Enter a new password"/>
+
+                <Label Text="Phone Number"></Label>
+                <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number"/>
+
+                <Label Text="Blocked" />
+                <CheckBox x:Name="isBlockedCheckBox" />
+
+                <Button Text="Update" Clicked="UpdateButton_Clicked" />
+                <Button Text="Cancel" Clicked="CancelButton_Clicked" BackgroundColor="DarkRed" />
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+    </ScrollView>
 </ContentPage>
