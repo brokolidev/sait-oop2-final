@@ -53,9 +53,17 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// Gets a list of all of the <see cref="User"/> objects in the database
         /// </summary>
         /// <returns>A <c>List&lt;&lt;<see cref="User"/>&gt;&gt;</c> of all of the <see cref="User"/> objects in the database</returns>
-        public List<User> GetAllUsers()
+        public List<User> GetAllUsers(User.UserTypes? userType = null, string firstName = "", string email = "", string phone = "")
         {
-            return [.. _context.Users];
+            //if there are no filters, then all will be returned
+            //if there are filtered, then the where clauses will act and filter on those.
+            List<User> usersFound = [.. _context.Users
+                .Where(item => item.UserType == (userType ?? item.UserType))
+                .Where(item => item.FirstName == (firstName == "" ? item.FirstName : firstName))
+                .Where(item => item.Email == (email == "" ? item.Email : email))
+                .Where(item => item.PhoneNumber == (phone == "" ? item.PhoneNumber : phone))];
+
+            return usersFound;
         }
 
         /// <summary>

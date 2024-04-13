@@ -62,9 +62,15 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// Gets a list of all of the <see cref="Book"/> objects in the database
         /// </summary>
         /// <returns>A <c>List&lt;&lt;<see cref="Book"/>&gt;&gt;</c> of all of the <see cref="Book"/> objects in the database</returns>
-        public List<Book> GetAllBooks()
+        public List<Book> GetAllBooks(Category? category = null, string title = "")
         {
-            return [.. _context.Books.Include("Category")];
+            //if there are no filters, then all will be returned
+            //if there are filtered, then the where clauses will act and filter on those.
+            List<Book> booksFound = [.. _context.Books
+                .Where(item => item.Title == (title == "" ? item.Title : title))
+                .Where(item => item.CategoryId == (category == null ? item.CategoryId : category.CategoryId))];
+
+            return booksFound;
         }
 
         /// <summary>
