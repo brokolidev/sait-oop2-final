@@ -98,6 +98,7 @@ public partial class AddInventoryPage : ContentPage
         newBook.Author = authorEntry.Text;
         newBook.Publisher = publisherEntry.Text;
         newBook.DatePublished = publishedDate;
+        newBook.Total = 0;
         
         // set category for the new book 
         newBook.Category = selectedCategory;

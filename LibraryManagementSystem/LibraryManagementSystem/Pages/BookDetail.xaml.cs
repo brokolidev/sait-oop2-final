@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Persistence.Controllers;
+using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
 
@@ -47,12 +48,17 @@ public partial class BookDetail : ContentPage
     }
 
     // delete book
-    private void DeleteButton_Clicked(object sender, EventArgs e)
+    private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
-        BookController bookController = new BookController();
-        bookController.DeleteBook(book.ISBN);
-
-        Shell.Current.GoToAsync(nameof(InventoryPage));
+        // confirm delete
+        bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
+        
+        if (answer)
+        {
+            BookController bookController = new BookController();
+            bookController.DeleteBook(book.ISBN);
+            Shell.Current.GoToAsync(nameof(InventoryPage));
+        }
     }
 
     // go to edit page
