@@ -44,7 +44,7 @@
             </VerticalStackLayout>
 
             <!-- Main Content -->
-            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15" Margin="0, 15, 0, 0">
 
                 <Label FontSize="Header">Book Rental</Label>
 
@@ -63,7 +63,10 @@
                 </HorizontalStackLayout>
 
                 <!-- Search result -->
-                <Label FontSize="Title" x:Name="ResultTitleLabel" IsVisible="False" HorizontalTextAlignment="Center">Search Result</Label>
+                <Label FontSize="Title" 
+                       x:Name="ResultTitleLabel" IsVisible="False" 
+                       HorizontalTextAlignment="Center" 
+                       Text="Select books" />
                 <ListView x:Name="BooksListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -81,6 +84,34 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+                <!-- Selected Books for rental -->
+                <VerticalStackLayout x:Name="SelectedBooksGroup" Spacing="15" Margin="0, 15, 0, 0">
+                    <Label FontSize="Title" 
+                           HorizontalTextAlignment="Center" 
+                           Text="Selected books" />
+                    <ListView x:Name="SelectedBooksView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <HorizontalStackLayout Spacing="10" Padding="10">
+                                        <Label Text="{Binding ISBN}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Title}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Author}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Publisher}" FontSize="Small" />
+                                    </HorizontalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Button Text="Rent" Clicked="RentButton_Clicked" 
+                            BackgroundColor="BlueViolet" TextColor="White"
+                            WidthRequest="200"/>
+                </VerticalStackLayout>
 
             </VerticalStackLayout>
         </HorizontalStackLayout>
