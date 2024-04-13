@@ -59,9 +59,9 @@
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Title</Label>
-                        <Entry Placeholder="Title"></Entry>
+                        <Entry Placeholder="Title" x:Name="filterTitleEntry"></Entry>
                     </VerticalStackLayout>
-                    <Button Text="Filter Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    <Button Text="Filter Inventory" Clicked="Filter_Clicked" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
                 <HorizontalStackLayout>

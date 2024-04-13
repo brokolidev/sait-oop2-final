@@ -2,6 +2,7 @@ using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Persistence.Controllers;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 
 namespace LibraryManagementSystem.Pages;
 
@@ -11,6 +12,7 @@ public partial class InventoryPage : ContentPage
     BookController bookController;
     List<Category> categories;
     Category selectedCategory;
+    string filterTitle;
 
     public InventoryPage()
 	{
@@ -52,6 +54,28 @@ public partial class InventoryPage : ContentPage
             $"?ISBN={selectedBook.ISBN}");        
     }
 
+    // event handler for category picker
+    private void OnCategoryIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        selectedCategory = (Category)picker.SelectedItem;
+    }
+
+    // event handler for title entry
+    private void OnTitleEntryChanged(object sender, EventArgs e)
+    {
+        var entry = (Entry)sender;
+        filterTitle = entry.Text;
+    }
+
+    // event handler for search button
+    private void Filter_Clicked(object sender, EventArgs e)
+    {
+        var filteredBooks = bookController.GetAllBooks(selectedCategory, filterTitle);
+        BooksListView.ItemsSource = books;
+    }
+
+    // event handler for add button
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -73,17 +97,10 @@ public partial class InventoryPage : ContentPage
             SystemEnv.LoggedInUser is Administrator;
 
 
+        // set event handlers
         SetBooksList();
         SetCategories();
-    }
-
-    // event handler for category picker
-    private void OnCategoryIndexChanged(object sender, EventArgs e)
-    {
-        var picker = (Picker)sender;
-        selectedCategory = (Category)picker.SelectedItem;
-        
-        // @TODO: Filter books by category
+        filterTitleEntry.TextChanged += OnTitleEntryChanged;
     }
 
 
