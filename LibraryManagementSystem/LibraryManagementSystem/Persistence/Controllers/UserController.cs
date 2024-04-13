@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Media.Audio;
 
 namespace LibraryManagementSystem.Persistence.Controllers
 {
@@ -93,6 +94,22 @@ namespace LibraryManagementSystem.Persistence.Controllers
             else
             {
                 //Throw an exception
+            }
+        }
+
+        public User? ValidateCredentials(string email, string password)
+        {
+            //This should return 1 if the credentials are valid
+            var userFound = _context.Users.FirstOrDefault(item => item.Email == email &&
+                item.Password == password);
+
+            if (userFound != null)
+            {
+                return userFound;
+            }
+            else
+            {
+                return null;
             }
         }
     }

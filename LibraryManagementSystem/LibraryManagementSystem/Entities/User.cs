@@ -40,6 +40,8 @@ namespace LibraryManagementSystem.Entities
         public DateOnly DateRegistered { get; set; } = new();
         public DateOnly? DateUpdated { get; set; }
         public bool? IsBlocked { get; set; }
+
+        [NotNull]
         public UserTypes UserType { get; set; }
 
 
@@ -55,16 +57,14 @@ namespace LibraryManagementSystem.Entities
         {
         }
 
-        public User(int userId, string firstName, string lastName, string email, string password, string phoneNumber)
+        public User(string firstName, string lastName, string email, string password, string phoneNumber)
         {
-            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
             PhoneNumber = phoneNumber;
 
-            IsBlocked = false;
             DateRegistered = DateOnly.FromDateTime(DateTime.Now);
             DateUpdated = DateOnly.FromDateTime(DateTime.Now);
             IsBlocked = false;
