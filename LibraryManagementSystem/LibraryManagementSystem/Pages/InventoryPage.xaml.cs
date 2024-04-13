@@ -10,6 +10,7 @@ public partial class InventoryPage : ContentPage
     List<Book>? books;
     BookController bookController;
     List<Category> categories;
+    Category selectedCategory;
 
     public InventoryPage()
 	{
@@ -80,10 +81,9 @@ public partial class InventoryPage : ContentPage
     private void OnCategoryIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        int selectedIndex = picker.SelectedIndex;
-
-        Category selectedCategory = categories[selectedIndex];
-        Debug.WriteLine("Selected Category: " + selectedCategory.Name);
+        selectedCategory = (Category)picker.SelectedItem;
+        
+        // @TODO: Filter books by category
     }
 
 

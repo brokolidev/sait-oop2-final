@@ -59,10 +59,6 @@
                         <Label>Title</Label>
                         <Entry Placeholder="Title"></Entry>
                     </VerticalStackLayout>
-                    <VerticalStackLayout Spacing="10" WidthRequest="200">
-                        <Label>Publish Year</Label>
-                        <Entry Placeholder="Year"></Entry>
-                    </VerticalStackLayout>
                     <Button Text="Filter Inventory" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
@@ -73,8 +69,11 @@
                                 <ViewCell>
                                     <HorizontalStackLayout Spacing="10" Padding="20">
                                         <Label Text="{Binding ISBN}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
                                         <Label Text="{Binding Title}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
                                         <Label Text="{Binding Author}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
                                         <Label Text="{Binding Publisher}" FontSize="Small" />
                                     </HorizontalStackLayout>
                                 </ViewCell>
