@@ -13,6 +13,21 @@ public partial class AddInventoryPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void SetCategories()
+    {
+        // set categories
+        CategoryController categoryController = new CategoryController();
+        categories = categoryController.GetAllCategories();
+
+        categoryPicker.ItemsSource = categories;
+        categoryPicker.ItemDisplayBinding = new Binding("Name");
+        categoryPicker.SelectedIndex = 0;
+
+        // bind the event handler
+        categoryPicker.SelectedIndexChanged += OnCategoryIndexChanged;
+    }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -33,16 +48,7 @@ public partial class AddInventoryPage : ContentPage
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
 
-        // set categories
-        CategoryController categoryController = new CategoryController();
-        categories = categoryController.GetAllCategories();
-        
-        categoryPicker.ItemsSource = categories;
-        categoryPicker.ItemDisplayBinding = new Binding("Name");
-        // bind the event handler
-        categoryPicker.SelectedIndexChanged += OnCategoryIndexChanged;
-
-
+        SetCategories();
     }
 
     // event handler for category picker
@@ -52,7 +58,7 @@ public partial class AddInventoryPage : ContentPage
         int selectedIndex = picker.SelectedIndex;
 
         Category selectedCategory = categories[selectedIndex];
-        //Debug.WriteLine("Selected Category: " + selectedCategory.Name);
+        Debug.WriteLine("Selected Category: " + selectedCategory.Name);
     }
 
     private void SaveButton_Clicked(object sender, EventArgs e)

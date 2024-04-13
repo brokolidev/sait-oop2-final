@@ -17,53 +17,59 @@
                     HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        Text="Home"
-                        Clicked="HomeButton_Clicked" />
+                    WidthRequest="200"
+                    Text="Home"
+                    Clicked="HomeButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="RentalButton"
-                        Text="Rental" />
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="CustomerButton"
-                        Text="Manage Customer"
-                        Clicked="CustomerButton_Clicked"/>
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer"
+                    Clicked="CustomerButton_Clicked"/>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="InventoryButton"
-                        WidthRequest="200"
-                        Text="Manage Inventory"
-                        Clicked="InventoryButton_Clicked" />
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory"
+                    Clicked="InventoryButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="SystemButton"
-                        WidthRequest="200"
-                        Text="Manage System"
-                        Clicked="SystemButton_Clicked"/>
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System"
+                    Clicked="SystemButton_Clicked"/>
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
-                <Label Text="Add Inventory" FontSize="Header" HorizontalOptions="Start" Padding="10" />
-                <StackLayout Padding="10">
-                    <Picker x:Name="categoryPicker" Title="Select Category">
-                    </Picker>
-                    <Label Text="ISBN"></Label>
-                    <Entry x:Name="isbnEntry" Placeholder="ISBN" Margin="0,0,0,10" />
-                    <Label Text="Title"></Label>
-                    <Entry x:Name="titleEntry" Placeholder="Title" Margin="0,0,0,10" />
-                    <Label Text="Author"></Label>
-                    <Entry x:Name="authorEntry" Placeholder="Author" Margin="0,0,0,10" />
-                    <Label Text="Publisher"></Label>
-                    <Entry x:Name="publisherEntry" Placeholder="Publisher" Margin="0,0,0,10"/>
-                    <Label Text="Publish Date"></Label>
-                    <Entry x:Name="publishDateEntry" Placeholder="Publish Date" Margin="0,0,0,10"/>
-                    <Button Text="Save this book" WidthRequest="200" Margin="0, 15, 0, 0" Clicked="SaveButton_Clicked" />
-                </StackLayout>
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15">
+                <Label Text="Add Inventory" FontSize="Header" HorizontalOptions="Start" />
+                
+                <Picker x:Name="categoryPicker" Title="Select Category">
+                </Picker>
+                
+                <Label Text="ISBN"></Label>
+                <Entry x:Name="isbnEntry" Placeholder="ISBN" />
+                
+                <Label Text="Title"></Label>
+                <Entry x:Name="titleEntry" Placeholder="Title" />
+                
+                <Label Text="Author"></Label>
+                <Entry x:Name="authorEntry" Placeholder="Author" />
+                
+                <Label Text="Publisher"></Label>
+                <Entry x:Name="publisherEntry" Placeholder="Publisher"/>
+                
+                <Label Text="Publish Date"></Label>
+                <Entry x:Name="publishDateEntry" Placeholder="Publish Date"/>
+                    
+                <Button Text="Save this book" WidthRequest="200" Margin="0, 15, 0, 0" Clicked="SaveButton_Clicked" />
             </VerticalStackLayout>
+                
         </HorizontalStackLayout>
     </ScrollView>
 

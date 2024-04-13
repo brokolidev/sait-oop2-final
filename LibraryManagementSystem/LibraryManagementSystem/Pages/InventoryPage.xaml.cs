@@ -1,7 +1,6 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Persistence.Controllers;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
@@ -10,6 +9,7 @@ public partial class InventoryPage : ContentPage
 {
     List<Book>? books;
     BookController bookController;
+    List<Category> categories;
 
     public InventoryPage()
 	{
@@ -19,6 +19,20 @@ public partial class InventoryPage : ContentPage
         SetBooksList();
     }
 
+    // Set Categories
+    private void SetCategories()
+    {
+        // set categories
+        CategoryController categoryController = new CategoryController();
+        categories = categoryController.GetAllCategories();
+
+        CategoryPicker.ItemsSource = categories;
+        CategoryPicker.ItemDisplayBinding = new Binding("Name");
+        // bind the event handler
+        CategoryPicker.SelectedIndexChanged += OnCategoryIndexChanged;
+    }
+
+    // Set Books List
     private void SetBooksList()
     {
         books = bookController.GetAllBooks();
@@ -47,7 +61,19 @@ public partial class InventoryPage : ContentPage
 
 
         SetBooksList();
+        SetCategories();
     }
+
+    // event handler for category picker
+    private void OnCategoryIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+        Category selectedCategory = categories[selectedIndex];
+        Debug.WriteLine("Selected Category: " + selectedCategory.Name);
+    }
+
 
     // Navigation Buttons
     private void HomeButton_Clicked(object sender, EventArgs e)

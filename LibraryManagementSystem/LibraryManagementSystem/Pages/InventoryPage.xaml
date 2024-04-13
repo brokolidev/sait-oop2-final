@@ -12,10 +12,10 @@
 
                 <!-- Logo -->
                 <Label 
-    HeightRequest="100" WidthRequest="250"
-    FontSize="Header" TextColor="White"
-    VerticalTextAlignment="Center"
-    HorizontalTextAlignment="Center">Logo</Label>
+                    HeightRequest="100" WidthRequest="250"
+                    FontSize="Header" TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                         WidthRequest="200"
@@ -53,7 +53,7 @@
                 <HorizontalStackLayout Spacing="15">
                     <VerticalStackLayout Spacing="10">
                         <Label>Category</Label>
-                        <Picker WidthRequest="200" BackgroundColor="LightGray"></Picker>
+                        <Picker WidthRequest="200" x:Name="CategoryPicker"></Picker>
                     </VerticalStackLayout>
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Title</Label>
