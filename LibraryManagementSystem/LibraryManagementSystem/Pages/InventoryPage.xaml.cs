@@ -16,7 +16,6 @@ public partial class InventoryPage : ContentPage
 		InitializeComponent();
 
         bookController = new BookController();
-        SetBooksList();
     }
 
     // Set Categories
@@ -37,6 +36,19 @@ public partial class InventoryPage : ContentPage
     {
         books = bookController.GetAllBooks();
         BooksListView.ItemsSource = books;
+        BooksListView.ItemSelected += OnBookSelected;
+    }
+
+    // Event handler for book selected
+    private void OnBookSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem == null)
+            return;
+
+        Book selectedBook = (Book)e.SelectedItem;
+
+        Shell.Current.GoToAsync($"{nameof(BookDetail)}" +
+            $"?ISBN={selectedBook.ISBN}");        
     }
 
     protected override void OnAppearing()

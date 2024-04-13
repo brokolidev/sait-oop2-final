@@ -16,6 +16,7 @@ namespace LibraryManagementSystem
             Routing.RegisterRoute(nameof(AddCustomerPage), typeof(AddCustomerPage));
             Routing.RegisterRoute(nameof(SystemPage), typeof(SystemPage));
             Routing.RegisterRoute(nameof(RentalPage), typeof(RentalPage));
+            Routing.RegisterRoute(nameof(BookDetail), typeof(BookDetail));
         }
     }
 }

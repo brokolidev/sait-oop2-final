@@ -25,6 +25,9 @@ namespace LibraryManagementSystem.Entities
         public Category Category { get; set; } = new();
 
         [NotNull]
+        public int CategoryId { get; set; }
+
+        [NotNull]
         public DateOnly DatePublished { get; set; } = new();
         
         [NotNull]
