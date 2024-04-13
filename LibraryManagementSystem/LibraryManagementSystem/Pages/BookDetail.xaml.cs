@@ -37,16 +37,7 @@ public partial class BookDetail : ContentPage
         DateUpdated.Detail = book.DateUpdated.ToString();
         Total.Detail = book.Total.ToString();
         CheckedOut.Detail = (book.CheckedOut == 0) ? "Available": "Unavailable";
-
-        SetCategory(book.CategoryId);
-    }
-
-    // set category
-    private void SetCategory(int categoryId)
-    {
-        CategoryController categoryController = new CategoryController();
-        Category category = categoryController.GetCategory(categoryId);
-        Category.Detail = category.Name;
+        Category.Detail = book.Category.Name;
     }
 
     // go back to inventory page

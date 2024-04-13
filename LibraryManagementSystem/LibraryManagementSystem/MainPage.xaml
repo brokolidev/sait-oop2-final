@@ -28,10 +28,10 @@
 
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Email</Label>
-                <Entry Placeholder="Email" x:Name="EmailEntry" />
+                <Entry Placeholder="Email" x:Name="EmailEntry" Text="john@example.com" />
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Password</Label>
-                <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" />
+                <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" Text="password123" />
 
                 <Button Text="Login" BackgroundColor="BlueViolet" Margin="0, 15, 0, 0" TextColor="White" Clicked="LoginButton_Clicked"/>
 
