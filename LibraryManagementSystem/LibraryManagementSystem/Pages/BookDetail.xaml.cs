@@ -55,6 +55,15 @@ public partial class BookDetail : ContentPage
         Shell.Current.GoToAsync(nameof(InventoryPage));
     }
 
+    // delete book
+    private void DeleteButton_Clicked(object sender, EventArgs e)
+    {
+        BookController bookController = new BookController();
+        bookController.DeleteBook(book.ISBN);
+
+        Shell.Current.GoToAsync(nameof(InventoryPage));
+    }
+
     // go to edit page
     private void EditButton_Clicked(object sender, EventArgs e)
     {

@@ -67,6 +67,12 @@ public partial class AddInventoryPage : ContentPage
         // after successfully saved the book, navigate back to InventoryPage
     }
 
+    // Go back to listing page
+    private void CancelButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(InventoryPage));
+    }
+
 
     // navigation buttons
     private void HomeButton_Clicked(object sender, EventArgs e)

@@ -69,11 +69,18 @@
                 </TableView>
 
                 <Button BackgroundColor="DarkBlue" TextColor="White"
+                    WidthRequest="200"
                     Clicked="EditButton_Clicked"
                     x:Name="EditButton"
                     Text="Edit" />
                 
                 <Button BackgroundColor="DarkRed" TextColor="White"
+                    WidthRequest="200"
+                    Clicked="DeleteButton_Clicked"
+                    Text="Cancel" />
+
+                <Button BackgroundColor="DarkMagenta" TextColor="White"
+                    WidthRequest="200"
                     x:Name="CancelButton"
                     Clicked="CancelButton_Clicked"
                     Text="Cancel" />
