@@ -60,20 +60,22 @@
 
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>First Name</Label>
-                        <Entry Placeholder="First Name"></Entry>
+                        <Entry x:Name="firstNameFilterEntry" Placeholder="First Name"></Entry>
                     </VerticalStackLayout>
                     
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Email</Label>
-                        <Entry Placeholder="Email"></Entry>
+                        <Entry x:Name="emailFilterEntry" Placeholder="Email"></Entry>
                     </VerticalStackLayout>
                     
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Phone</Label>
-                        <Entry Placeholder="Phone Number"></Entry>
+                        <Entry x:Name="phoneNumberFilterEntry" Placeholder="Phone Number"></Entry>
                     </VerticalStackLayout>
                     
-                    <Button Text="Filter User" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    <Button Text="Filter User" 
+                            Clicked="FilterButton_Clicked"
+                            WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                     
                 </HorizontalStackLayout>
                 
