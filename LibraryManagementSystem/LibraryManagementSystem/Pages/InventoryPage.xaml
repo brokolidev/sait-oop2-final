@@ -76,8 +76,6 @@
                                         <Label Text="{Binding Title}" FontSize="Small" />
                                         <Label Text="{Binding Author}" FontSize="Small" />
                                         <Label Text="{Binding Publisher}" FontSize="Small" />
-                                        <Button Text="Edit" BackgroundColor="DarkBlue"  FontSize="Caption"></Button>
-                                        <Button Text="Delete" BackgroundColor="DarkRed" FontSize="Caption"></Button>
                                     </HorizontalStackLayout>
                                 </ViewCell>
                             </DataTemplate>
