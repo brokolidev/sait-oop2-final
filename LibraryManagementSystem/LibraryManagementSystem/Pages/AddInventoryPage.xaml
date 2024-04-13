@@ -64,7 +64,7 @@
                 <Label Text="Publisher"></Label>
                 <Entry x:Name="publisherEntry" Placeholder="Publisher"/>
                 
-                <Label Text="Publish Date"></Label>
+                <Label Text="Published Date"></Label>
                 <Entry x:Name="publishDateEntry" Placeholder="Publish Date"/>
                     
                 <Button Text="Add this book" WidthRequest="200" Clicked="SaveButton_Clicked" />
