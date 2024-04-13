@@ -35,6 +35,45 @@ public partial class CustomerPage : ContentPage
         UserTypePicker.SelectedIndexChanged += OnUserTypeIndexChanged;
     }
 
+    // Event handler for user type selected
+    private void OnUserTypeIndexChanged(object sender, EventArgs e)
+    {
+        selectedUserType = (User.UserTypes)UserTypePicker.SelectedItem;
+    }
+
+    // Event handler for filter button
+    private void FilterButton_Clicked(object sender, EventArgs e)
+    {
+        var firstNameFilterText = firstNameFilterEntry.Text;
+        var emailFilterText = emailFilterEntry.Text;
+        var phoneFilterText = phoneNumberFilterEntry.Text;
+
+        // refresh the list
+        users = userController.GetAllUsers(selectedUserType, firstNameFilterText, emailFilterText, phoneFilterText);
+        CustomerListView.ItemsSource = users;
+    }
+
+    // Event handler for customer selected
+    private void OnCustomerSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem == null)
+            return;
+
+        User selectedUser = (User)e.SelectedItem;
+
+        Debug.WriteLine($"{selectedUser.UserId} / {selectedUser.FirstName} / {selectedUser.LastName}");
+
+        Shell.Current.GoToAsync($"{nameof(UserDetail)}" +
+                       $"?Id={selectedUser.UserId}");
+    }
+
+    // Customer manager buttons
+    private void AddCustButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(AddCustomerPage));
+    }
+
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -59,30 +98,6 @@ public partial class CustomerPage : ContentPage
         SetUserTypes();
     }
 
-    // Event handler for user type selected
-    private void OnUserTypeIndexChanged(object sender, EventArgs e)
-    {
-        selectedUserType = (User.UserTypes)UserTypePicker.SelectedItem;
-        
-        // @TODO: need to add filtering function to UserController
-        //users = userController.GetUsersByType(selectedUserType);
-        //CustomerListView.ItemsSource = users;
-    }
-
-    // Event handler for customer selected
-    private void OnCustomerSelected(object sender, SelectedItemChangedEventArgs e)
-    {
-        if (e.SelectedItem == null)
-            return;
-
-        User selectedUser = (User)e.SelectedItem;
-
-        Debug.WriteLine($"{selectedUser.UserId} / {selectedUser.FirstName} / {selectedUser.LastName}");
-
-        Shell.Current.GoToAsync($"{nameof(UserDetail)}" +
-                       $"?Id={selectedUser.UserId}");
-    }
-
     // Main navigation buttons
     private void InventoryButton_Clicked(object sender, EventArgs e)
     {
@@ -102,13 +117,6 @@ public partial class CustomerPage : ContentPage
     private void SystemButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
-    }
-
-
-    // Customer manager buttons
-    private void AddCustButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(AddCustomerPage));
     }
 
 }
