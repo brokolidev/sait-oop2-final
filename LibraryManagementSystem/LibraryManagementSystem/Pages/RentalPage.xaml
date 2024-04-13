@@ -63,6 +63,7 @@
                 </HorizontalStackLayout>
 
                 <!-- Search result -->
+                <Label FontSize="Title" x:Name="ResultTitleLabel" IsVisible="False" HorizontalTextAlignment="Center">Search Result</Label>
                 <ListView x:Name="BooksListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>

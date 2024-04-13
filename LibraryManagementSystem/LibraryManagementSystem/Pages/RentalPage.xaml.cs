@@ -44,6 +44,8 @@ public partial class RentalPage : ContentPage
     {
         var title = BookTitleEntry.Text;
 
+        // if no title is provided, replace with empty string
+        // to prevent throwing exeption
         if (title == null)
         {
             title = "";
@@ -55,10 +57,14 @@ public partial class RentalPage : ContentPage
         // if no books found
         if (books.Count == 0)
         {
+            ResultTitleLabel.IsVisible = false;
+            BooksListView.IsVisible = false;
             DisplayAlert("No Books Found", "No books found for the given criteria", "OK");
             return;
         }
 
+        ResultTitleLabel.IsVisible = true;
+        // refresh the list view
         BooksListView.ItemsSource = books;
     }
 
