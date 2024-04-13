@@ -11,65 +11,79 @@
 
                 <!-- Logo -->
                 <Label 
-    HeightRequest="100" WidthRequest="250"
-    FontSize="Header" TextColor="White"
-    VerticalTextAlignment="Center"
-    HorizontalTextAlignment="Center">Logo</Label>
+                    HeightRequest="100" WidthRequest="250"
+                    FontSize="Header" TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        Text="Home"
-                        Clicked="HomeButton_Clicked" />
+                    WidthRequest="200"
+                    Text="Home"
+                    Clicked="HomeButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="RentalButton"
-                        Text="Rental" />
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="CustomerButton"
-                        Text="Manage Customer"
-                        Clicked="CustomerButton_Clicked"/>
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer"
+                    Clicked="CustomerButton_Clicked"/>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="InventoryButton"
-                        WidthRequest="200"
-                        Text="Manage Inventory"
-                        Clicked="InventoryButton_Clicked" />
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory"
+                    Clicked="InventoryButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="SystemButton"
-                        WidthRequest="200"
-                        Text="Manage System" 
-                        Clicked="SystemButton_Clicked"/>
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System" 
+                    Clicked="SystemButton_Clicked"/>
 
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20" WidthRequest="1300" Spacing="10">
 
-                <Label FontSize="Header">Manage Customer</Label>
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Customer Finder</Label>
+                <Label FontSize="Header">Manage User</Label>
+                
+                <Label FontSize="Title" HorizontalTextAlignment="Center">User Finder</Label>
                 <HorizontalStackLayout Spacing="15">
+
+                    <VerticalStackLayout Spacing="10" WidthRequest="200">
+                        <Label>User Type</Label>
+                        <Picker x:Name="UserTypePicker"></Picker>
+                    </VerticalStackLayout>
+
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>First Name</Label>
                         <Entry Placeholder="First Name"></Entry>
                     </VerticalStackLayout>
+                    
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Last Name</Label>
                         <Entry Placeholder="Last Name"></Entry>
                     </VerticalStackLayout>
+                    
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Email</Label>
                         <Entry Placeholder="Email"></Entry>
                     </VerticalStackLayout>
+                    
                     <VerticalStackLayout Spacing="10" WidthRequest="200">
                         <Label>Phone</Label>
                         <Entry Placeholder="Phone Number"></Entry>
                     </VerticalStackLayout>
+                    
                     <Button Text="Filter Customer" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
+                    
                 </HorizontalStackLayout>
+                
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Customer List</Label>
+                
                 <HorizontalStackLayout>
                     <ListView x:Name="CustomerListView">
                     </ListView>

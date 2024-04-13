@@ -8,13 +8,32 @@ namespace LibraryManagementSystem.Pages;
 public partial class CustomerPage : ContentPage
 {
 
-    //List<User> users;
-    //UserController userController;
+    List<User> users;
+    UserController userController;
+    User.UserTypes selectedUserType;
 
-	public CustomerPage()
+    public CustomerPage()
 	{
 		InitializeComponent();
+
+        userController = new UserController();
 	}
+
+    // Set Customers list
+    private void SetCustomersList()
+    {
+        // this could
+        users = userController.GetAllUsers();
+        CustomerListView.ItemsSource = users;
+        CustomerListView.ItemSelected += OnCustomerSelected;
+    }
+
+    // Set User Types
+    private void SetUserTypes()
+    {
+        UserTypePicker.ItemsSource = Enum.GetValues(typeof(User.UserTypes));
+        UserTypePicker.SelectedIndexChanged += OnUserTypeIndexChanged;
+    }
 
     protected override void OnAppearing()
     {
@@ -36,9 +55,32 @@ public partial class CustomerPage : ContentPage
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser is Administrator;
 
-        // @TODO: Get all users from the database
-        //userController = new UserController();
-        //users = userController.GetAllUsers();
+        SetCustomersList();
+        SetUserTypes();
+    }
+
+    // Event handler for user type selected
+    private void OnUserTypeIndexChanged(object sender, EventArgs e)
+    {
+        selectedUserType = (User.UserTypes)UserTypePicker.SelectedItem;
+        
+        // @TODO: need to add filtering function to UserController
+        //users = userController.GetUsersByType(selectedUserType);
+        //CustomerListView.ItemsSource = users;
+    }
+
+    // Event handler for customer selected
+    private void OnCustomerSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem == null)
+            return;
+
+        User selectedUser = (User)e.SelectedItem;
+
+        Debug.WriteLine($"{selectedUser.UserId} / {selectedUser.FirstName} / {selectedUser.LastName}");
+
+        //Shell.Current.GoToAsync($"{nameof(CustomerDetail)}" +
+        //               $"?UserID={selectedUser.UserID}");
     }
 
     // Main navigation buttons
