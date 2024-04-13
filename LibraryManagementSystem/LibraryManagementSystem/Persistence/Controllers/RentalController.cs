@@ -11,14 +11,6 @@ namespace LibraryManagementSystem.Persistence.Controllers
     public class RentalController
     {
 
-        /*
-         * TODO:
-         * 
-         * - Add method for getting rentals of specific books
-         * - Add method for getting rentals of specific users
-         */
-
-
         private readonly LMSDbContext _context = new();
 
         /// <summary>
@@ -71,19 +63,19 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// Gets a list of all of the <see cref="Rental"/> objects in the database
         /// </summary>
         /// <returns>A <c>List&lt;&lt;<see cref="Rental"/>&gt;&gt;</c> of all of the <see cref="Rental"/> objects in the database</returns>
-        public List<Rental> GetAllRentals()
+        public List<Rental> GetAllRentals(User? rentedBy = null, Book? bookRented = null,
+            DateOnly? dateRented = null, DateOnly? dateReturned = null, bool? finePayed = null)
         {
-            return [.. _context.Rentals.Include("Book.User")];
-        }
 
-        public List<Rental> GetRentals(int userId)
-        {
-            return [.. _context.Rentals.Where(item => item.RentedBy.UserId == userId)];
-        }
+            List<Rental> rentalsFound = [.. _context.Rentals
+                .Include("Book.User")
+                .Where(item => item.RentedBy.UserId == (rentedBy == null ? item.RentedBy.UserId : rentedBy.UserId))
+                .Where(item => item.BookRented.ISBN == (bookRented == null ? item.BookRented.ISBN : bookRented.ISBN))
+                .Where(item => item.DateRented == (dateRented == null ? item.DateRented : dateRented))
+                .Where(item => item.DateReturned == (dateReturned == null ? item.DateReturned : dateReturned))
+                .Where(item => item.FinePayed == (finePayed == null ? item.FinePayed : finePayed))];
 
-        public List<Rental> GetRentals(string ISBN)
-        {
-            return [.. _context.Rentals.Where(item => item.BookRented.ISBN == ISBN)];
+            return rentalsFound;
         }
 
         /// <summary>
