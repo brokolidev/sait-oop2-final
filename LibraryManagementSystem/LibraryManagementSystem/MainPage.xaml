@@ -16,6 +16,8 @@
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center">Logo</Label>
 
+                <Label x:Name="TestLabel" FontSize="Micro" />
+
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20">

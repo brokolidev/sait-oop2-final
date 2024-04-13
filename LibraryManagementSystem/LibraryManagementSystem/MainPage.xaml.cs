@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
+using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages
 {
@@ -10,6 +11,7 @@ namespace LibraryManagementSystem.Pages
             InitializeComponent();
     	}
 
+        // check if the user is already logged in
         protected override void OnAppearing()
         {
             // check if the user is already logged in
@@ -21,10 +23,6 @@ namespace LibraryManagementSystem.Pages
             base.OnAppearing();
         }
 
-        private void InventoryButton_Clicked(object sender, EventArgs e)
-        {
-            Shell.Current.GoToAsync(nameof(InventoryPage));
-        }
 
         // Login
         private void LoginButton_Clicked(object sender, EventArgs e)
@@ -33,14 +31,14 @@ namespace LibraryManagementSystem.Pages
             string password = PasswordEntry.Text;
 
             // null check
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 DisplayAlert("Error", "Please enter a username and password", "OK");
                 return;
             }
 
             // check if the username and password are correct
-            if(TryLogin(username, password))
+            if (TryLogin(username, password))
             {
                 // go to welcome page
                 Shell.Current.GoToAsync(nameof(Welcome));
@@ -51,6 +49,11 @@ namespace LibraryManagementSystem.Pages
             }
         }
 
+        // Navigation Buttons
+        private void InventoryButton_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync(nameof(InventoryPage));
+        }
 
         // this will need to be replaced with a database check
         private bool TryLogin(string username, string password)

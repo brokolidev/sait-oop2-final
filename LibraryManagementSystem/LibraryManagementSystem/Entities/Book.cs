@@ -20,10 +20,10 @@ namespace LibraryManagementSystem.Entities
         [NotNull]
         public string Author { get; set; } = String.Empty;
         public string? Publisher { get; set; }
-        
+
         [NotNull]
         public Category Category { get; set; } = new();
-        
+
         [NotNull]
         public DateOnly DatePublished { get; set; } = new();
         

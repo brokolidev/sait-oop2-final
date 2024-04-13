@@ -11,10 +11,10 @@
 
                 <!-- Logo -->
                 <Label 
-    HeightRequest="100" WidthRequest="250"
-    FontSize="Header" TextColor="White"
-    VerticalTextAlignment="Center"
-    HorizontalTextAlignment="Center">Logo</Label>
+                    HeightRequest="100" WidthRequest="250"
+                    FontSize="Header" TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                         WidthRequest="200"

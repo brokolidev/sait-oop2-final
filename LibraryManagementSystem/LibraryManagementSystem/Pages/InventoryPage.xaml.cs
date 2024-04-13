@@ -1,25 +1,27 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
 
 public partial class InventoryPage : ContentPage
 {
+    List<Book>? books;
+    BookController bookController;
+
     public InventoryPage()
 	{
 		InitializeComponent();
 
-        List<Book> books = new List<Book>
-        {
-            new Book {ISBN = "34234232", Title = "Happy Ending Story", Author = "Chai"},
-            new Book {ISBN = "34234232", Title = "Happy Ending Story", Author = "Chai"},
-            new Book {ISBN = "34234232", Title = "Happy Ending Story", Author = "Chai"},
-            new Book {ISBN = "34234232", Title = "Happy Ending Story", Author = "Chai"},
-            new Book {ISBN = "34234232", Title = "Happy Ending Story", Author = "Chai"}
+        bookController = new BookController();
+        SetBooksList();
+    }
 
-        };
-
+    private void SetBooksList()
+    {
+        books = bookController.GetAllBooks();
         BooksListView.ItemsSource = books;
     }
 
@@ -42,6 +44,9 @@ public partial class InventoryPage : ContentPage
 
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser is Administrator;
+
+
+        SetBooksList();
     }
 
     // Navigation Buttons

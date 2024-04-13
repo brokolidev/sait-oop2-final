@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
 using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
@@ -33,16 +34,9 @@ public partial class AddInventoryPage : ContentPage
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
 
         // set categories
-        // @TODO: get categories from database
-        categories = new List<Category>
-        {
-            new Category {CategoryId = 1, Name = "Fiction", DateRegistered = new DateOnly(2021, 10, 1)},
-            new Category {CategoryId = 2, Name = "Non-Fiction", DateRegistered = new DateOnly(2021, 10, 1)},
-            new Category {CategoryId = 3, Name = "Mystery", DateRegistered = new DateOnly(2021, 10, 1)},
-            new Category {CategoryId = 4, Name = "Science Finction", DateRegistered = new DateOnly(2021, 10, 1)},
-            new Category {CategoryId = 5, Name = "Fantasy", DateRegistered = new DateOnly(2021, 10, 1)}
-        };
-
+        CategoryController categoryController = new CategoryController();
+        categories = categoryController.GetAllCategories();
+        
         categoryPicker.ItemsSource = categories;
         categoryPicker.ItemDisplayBinding = new Binding("Name");
         // bind the event handler
@@ -58,7 +52,7 @@ public partial class AddInventoryPage : ContentPage
         int selectedIndex = picker.SelectedIndex;
 
         Category selectedCategory = categories[selectedIndex];
-        Debug.WriteLine("Selected Category: " + selectedCategory.Name);
+        //Debug.WriteLine("Selected Category: " + selectedCategory.Name);
     }
 
     private void SaveButton_Clicked(object sender, EventArgs e)
