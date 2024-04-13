@@ -82,7 +82,7 @@
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Customer List</Label>
                 
                 <HorizontalStackLayout>
-                    <ListView x:Name="CustomerListView" SeparatorColor="AliceBlue">
+                    <ListView x:Name="CustomerListView">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

@@ -1,16 +1,64 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
 using System.Diagnostics;
 
 namespace LibraryManagementSystem.Pages;
 
 public partial class RentalPage : ContentPage
 {
+    private List<Category> categories;
+    private List<Book> books;
+    private Category selectedCategory;
+
+
 	public RentalPage()
 	{
 		InitializeComponent();
 	}
 
+
+    // Set Categories
+    private void SetCategories()
+    {
+        // set categories
+        CategoryController categoryController = new CategoryController();
+        categories = categoryController.GetAllCategories();
+
+        CategoryPicker.ItemsSource = categories;
+        CategoryPicker.ItemDisplayBinding = new Binding("Name");
+        // bind the event handler
+        CategoryPicker.SelectedIndexChanged += OnCategoryIndexChanged;
+    }
+
+
+    // event handler for category picker
+    private void OnCategoryIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        selectedCategory = (Category)picker.SelectedItem;
+    }
+
+    // search books
+    private void Search_Clicked(object sender, EventArgs e)
+    {
+        var title = BookTitleEntry.Text;
+        
+        BookController bookController = new BookController();
+        books = bookController.GetAllBooks(selectedCategory, title);
+        
+        // if no books found
+        if(books.Count == 0)
+        {
+            DisplayAlert("No Books Found", "No books found for the given criteria", "OK");
+            return;
+        }
+
+        BooksListView.ItemsSource = books;
+    }
+
+
+    // basic settings for this page
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -30,6 +78,9 @@ public partial class RentalPage : ContentPage
 
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser is Administrator;
+
+        // set categories
+        SetCategories();
     }
 
     // navigation buttons
@@ -52,4 +103,5 @@ public partial class RentalPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
     }
+
 }
