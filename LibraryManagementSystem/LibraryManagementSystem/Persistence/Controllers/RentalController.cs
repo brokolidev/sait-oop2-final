@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,9 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// <returns>The <see cref="Rental"/> found, <c>Null</c> otherwise</returns>
         public Rental GetRental(int rentalId)
         {
-            var rental = _context.Rentals.FirstOrDefault(item => item.RentalId == rentalId);
+            var rental = _context.Rentals
+                .Include("Book.User")
+                .FirstOrDefault(item => item.RentalId == rentalId);
 
             if (rental != null)
             {
@@ -70,7 +73,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// <returns>A <c>List&lt;&lt;<see cref="Rental"/>&gt;&gt;</c> of all of the <see cref="Rental"/> objects in the database</returns>
         public List<Rental> GetAllRentals()
         {
-            return [.. _context.Rentals];
+            return [.. _context.Rentals.Include("Book.User")];
         }
 
         public List<Rental> GetRentals(int userId)

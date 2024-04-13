@@ -25,8 +25,8 @@
                 <Label FontSize="Body" Padding="0, 15, 0, 0" TextColor="BlueViolet">Please Login</Label>
 
 
-                <Label FontSize="Body" Padding="0, 15, 0, 0">Username</Label>
-                <Entry Placeholder="Username" x:Name="UsernameEntry" />
+                <Label FontSize="Body" Padding="0, 15, 0, 0">Email</Label>
+                <Entry Placeholder="Email" x:Name="EmailEntry" />
 
                 <Label FontSize="Body" Padding="0, 15, 0, 0">Password</Label>
                 <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" />

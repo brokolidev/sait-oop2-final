@@ -10,8 +10,8 @@ namespace LibraryManagementSystem.Entities
     {
         public Instructor() { }
 
-        public Instructor(int userId, string firstName, string lastName, string password, string email, string phoneNumber)
-            : base(userId, firstName, lastName, password, email, phoneNumber) 
+        public Instructor(string firstName, string lastName, string password, string email, string phoneNumber)
+            : base(firstName, lastName, password, email, phoneNumber) 
         {
             UserType = UserTypes.Instructor;
         }

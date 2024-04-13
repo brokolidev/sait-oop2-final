@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Config;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
 
 namespace LibraryManagementSystem.Pages
 {
@@ -8,7 +9,7 @@ namespace LibraryManagementSystem.Pages
     	public MainPage()
     	{
             InitializeComponent();
-    	}
+        }
 
         protected override void OnAppearing()
         {
@@ -29,18 +30,18 @@ namespace LibraryManagementSystem.Pages
         // Login
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            string username = UsernameEntry.Text;
+            string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
 
             // null check
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 DisplayAlert("Error", "Please enter a username and password", "OK");
                 return;
             }
 
             // check if the username and password are correct
-            if(TryLogin(username, password))
+            if(TryLogin(email, password))
             {
                 // go to welcome page
                 Shell.Current.GoToAsync(nameof(Welcome));
@@ -53,37 +54,18 @@ namespace LibraryManagementSystem.Pages
 
 
         // this will need to be replaced with a database check
-        private bool TryLogin(string username, string password)
+        private bool TryLogin(string email, string password)
         {
 
-            if(password != "pass")
+            User? userFound = EntityController.userController.ValidateCredentials(email, password);
+
+            if (userFound == null)
             {
                 return false;
             }
 
-            // create administator instance
-            Administrator admin = new Administrator(1, "Ted", "Choi", "ted@gmail.com", "pass", "123-1234-1111");
-            Librarian librarian = new(2, "Dan", "Choi", "dan@gmail.com", "pass", "123-1234-2222");
-            Instructor instructor = new(3, "Bill", "Choi", "bill@gmail.com", "pass", "123-1234-3333");
-            Student student = new(4, "Mac", "Choi", "mac@gmail.com", "pass", "123-1234-4444");
-
-            switch (username)
-            {
-                case "admin":
-                    LoggedIn(admin);
-                    break;
-                case "librarian":
-                    LoggedIn(librarian);
-                    break;
-                case "instructor":
-                    LoggedIn(instructor);
-                    break;
-                case "student":
-                    LoggedIn(student);
-                    break;
-                default:
-                    return false;
-            }
+            //log the user in
+            LoggedIn(userFound);
 
             return true;
         }

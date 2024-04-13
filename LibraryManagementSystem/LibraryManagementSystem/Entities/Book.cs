@@ -20,7 +20,7 @@ namespace LibraryManagementSystem.Entities
         [NotNull]
         public string Author { get; set; } = String.Empty;
         public string? Publisher { get; set; }
-        
+
         [NotNull]
         public Category Category { get; set; } = new();
         
@@ -34,5 +34,20 @@ namespace LibraryManagementSystem.Entities
         public int? CheckedOut { get; set; }
 
         public Book() { }
+
+        public Book(string ISBN, string title, string author, string publisher, Category category, DateOnly datePublished, int total, int checkedOut=0)
+        {
+            this.ISBN = ISBN;
+            this.Title = title;
+            this.Author = author;
+            this.Publisher = publisher;
+            this.Category = category;
+            this.Total = total;
+            this.CheckedOut = checkedOut;
+            this.DatePublished = datePublished;
+
+            this.DateRegistered = DateOnly.FromDateTime(DateTime.Now);
+            this.DateUpdated = DateOnly.FromDateTime(DateTime.Now);
+        }
     }
 }

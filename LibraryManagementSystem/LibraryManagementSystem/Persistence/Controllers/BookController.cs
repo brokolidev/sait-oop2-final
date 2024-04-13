@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (!_context.Books.Contains(book))
             {
                 var bookCreated = _context.Books.Add(book).Entity;
+                _context.Categories.Attach(bookCreated.Category);
                 _context.SaveChanges();
 
                 return bookCreated.ISBN;
@@ -39,7 +41,9 @@ namespace LibraryManagementSystem.Persistence.Controllers
         public Book GetBook(string ISBN)
         {
             //return null if the book was not found
-            var book = _context.Books.FirstOrDefault(item => item.ISBN == ISBN);
+            var book = _context.Books
+                .Include("Category")
+                .FirstOrDefault(item => item.ISBN == ISBN);
 
             if (book != null)
             {
@@ -60,7 +64,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// <returns>A <c>List&lt;&lt;<see cref="Book"/>&gt;&gt;</c> of all of the <see cref="Book"/> objects in the database</returns>
         public List<Book> GetAllBooks()
         {
-            return [.. _context.Books];
+            return [.. _context.Books.Include("Category")];
         }
 
         /// <summary>
