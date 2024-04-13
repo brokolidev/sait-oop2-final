@@ -43,12 +43,17 @@ public partial class RentalPage : ContentPage
     private void Search_Clicked(object sender, EventArgs e)
     {
         var title = BookTitleEntry.Text;
-        
+
+        if (title == null)
+        {
+            title = "";
+        }
+
         BookController bookController = new BookController();
         books = bookController.GetAllBooks(selectedCategory, title);
-        
+
         // if no books found
-        if(books.Count == 0)
+        if (books.Count == 0)
         {
             DisplayAlert("No Books Found", "No books found for the given criteria", "OK");
             return;

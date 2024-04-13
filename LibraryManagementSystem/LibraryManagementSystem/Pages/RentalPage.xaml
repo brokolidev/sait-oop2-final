@@ -54,9 +54,7 @@
                     <!-- Search criteria -->
                     <Picker x:Name="CategoryPicker" WidthRequest="200" Title="Category">
                     </Picker>
-                    <Entry Placeholder="ISBN" x:Name="IsbnEntry" WidthRequest="200"/>
                     <Entry Placeholder="Book Title" x:Name="BookTitleEntry" WidthRequest="200"/>
-                    <Entry Placeholder="Author" x:Name="AuthorEntry" WidthRequest="200"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
