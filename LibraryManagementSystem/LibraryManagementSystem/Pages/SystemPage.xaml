@@ -45,81 +45,41 @@
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+            <!-- Main Content -->
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15" Margin="0, 15, 0, 0">
 
-                <Label FontSize="20">Manage System</Label>
+                <Label FontSize="Header">Manage System</Label>
 
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,15">View System Logs</Label>
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Adjust Rental Days</Label>
 
-                <!-- Filter options for viewing system logs-->
-                <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" Spacing="10">
-                    <Label Text="Log Type:" VerticalOptions="Center" />
-                    <Picker x:Name="LogTypePicker" WidthRequest="200">
-                        <Picker.Items>
-                            <x:String>All</x:String>
-                            <x:String>User Activity</x:String>
-                            <x:String>User Accounts</x:String>
-                            <x:String>Books</x:String>
-                            <x:String>Rentals</x:String>
-                            <x:String>Backup/Restore</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Label Text="From:" VerticalOptions="Center" Padding="20,0,0,0" />
-                    <DatePicker x:Name="StartDatePicker" WidthRequest="200" />
-                    <Label Text="To:" VerticalOptions="Center" Padding="10,0,0,0" />
-                    <DatePicker x:Name="EndDatePicker" WidthRequest="200" />
 
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="100">
+                    <!-- Rental Days for Students -->
+                    <VerticalStackLayout Spacing="10">
+                        <Label FontSize="Subtitle" HorizontalTextAlignment="Center">Rental Days for Students:</Label>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                            <Label HorizontalTextAlignment="Center" Text="Current Days: "/>
+                            <Label x:Name="CurrentStudentDays"  HorizontalTextAlignment="Center" Text="14"/>
+                        </HorizontalStackLayout>
+                        <Entry x:Name="StudentDaysEntry" HorizontalOptions="CenterAndExpand" WidthRequest="200" Keyboard="Numeric" Placeholder="Enter number of days"  />
+                    </VerticalStackLayout>
+
+                    <!-- Rental Days for Instructors -->
+                    <VerticalStackLayout Spacing="10">
+                        <Label FontSize="Subtitle" HorizontalTextAlignment="Center">Rental Days for Instructors:</Label>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                            <Label HorizontalTextAlignment="Center" Text="Current Days: "/>
+                            <Label x:Name="CurrentInstructorDays"  HorizontalTextAlignment="Center" Text="30"/>
+                        </HorizontalStackLayout>
+                        <Entry x:Name="InstructorDaysEntry" HorizontalOptions="CenterAndExpand" WidthRequest="200" Keyboard="Numeric" Placeholder="Enter number of days"  />
+                    </VerticalStackLayout>
                 </HorizontalStackLayout>
 
+
+                <!-- Apply Button -->
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
-                    <!-- View logs button -->
-                    <Button Text="View Logs" WidthRequest="200" />
+                    <Button Text="Apply Changes" WidthRequest="200" />
                 </HorizontalStackLayout>
-
-
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,15">Reports and Analytics</Label>
-
-                <!-- Reports and analytics section -->
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
-                    <!-- Filter options -->
-                    <Label Text="Generate reports on:" VerticalOptions="Center" />
-                    <Picker x:Name="ReportsPicker" WidthRequest="200">
-                        <Picker.Items>
-                            <x:String>Library usage</x:String>
-                            <x:String>Book popularity</x:String>
-                            <x:String>Overdue books</x:String>
-                        </Picker.Items>
-                    </Picker>
-
-                    <!-- Analyze options -->
-                    <Label Text="Analyze:" VerticalOptions="Center" Padding="20,0,0,0" />
-                    <Picker x:Name="AnalysisPicker" WidthRequest="200" >
-                        <Picker.Items>
-                            <x:String>Library performance metrics</x:String>
-                            <x:String>Trends</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
-                    <!-- View logs button -->
-                    <!-- Button for filtering and generating reports -->
-                    <Button Text="Generate" WidthRequest="200" />
-                </HorizontalStackLayout>
-
-
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,10">Backup and Restore</Label>
-
-                <!-- Backup and Restore Buttons -->
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="30">
-
-                    <!-- Backup button -->
-                    <Button Text="Backup System" WidthRequest="200" />
-
-                    <!-- Restore button -->
-                    <Button Text="Restore System" WidthRequest="200" />
-                </HorizontalStackLayout>
-
 
             </VerticalStackLayout>
 
