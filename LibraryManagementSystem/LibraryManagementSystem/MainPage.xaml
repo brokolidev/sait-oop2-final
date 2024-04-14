@@ -20,20 +20,26 @@
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20">
+            <VerticalStackLayout Padding="20" Spacing="15">
 
                 <Label FontSize="Header">Welcome to SAIT Library</Label>
 
-                <Label FontSize="Body" Padding="0, 15, 0, 0" TextColor="BlueViolet">Please Login</Label>
+                <Label FontSize="Body" TextColor="BlueViolet">Please Login</Label>
 
 
-                <Label FontSize="Body" Padding="0, 15, 0, 0">Email</Label>
+                <Label FontSize="Body">Email</Label>
                 <Entry Placeholder="Email" x:Name="EmailEntry" Text="jane@example.com" />
 
-                <Label FontSize="Body" Padding="0, 15, 0, 0">Password</Label>
+                <Label FontSize="Body">Password</Label>
                 <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" Text="janepass" />
 
                 <Button Text="Login" BackgroundColor="BlueViolet" Margin="0, 15, 0, 0" TextColor="White" Clicked="LoginButton_Clicked"/>
+
+                <Label FontSize="Body">Test accounts / Password : pass</Label>
+                <Label FontSize="Body">admin@example.com (Administrator)</Label>
+                <Label FontSize="Body">jane@example.com (Student)</Label>
+                <Label FontSize="Body">bob@example.com (Librarian)</Label>
+                <Label FontSize="Body">joe@example.com (Instructor)</Label>
 
             </VerticalStackLayout>
 
