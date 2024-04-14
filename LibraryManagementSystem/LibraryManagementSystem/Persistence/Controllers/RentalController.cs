@@ -67,7 +67,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// </summary>
         /// <returns>A <c>List&lt;&lt;<see cref="Rental"/>&gt;&gt;</c> of all of the <see cref="Rental"/> objects in the database</returns>
         public List<Rental> GetAllRentals(User? rentedBy = null, Book? bookRented = null,
-            DateOnly? dateRented = null, DateOnly? dateReturned = null, bool? finePayed = null)
+            DateOnly? dateRented = null, DateOnly? dateExpires = null, DateOnly ? dateReturned = null, bool? finePayed = null)
         {
 
             List<Rental> rentalsFound = [.. _context.Rentals
@@ -75,6 +75,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
                 .Where(item => item.RentedBy.UserId == (rentedBy == null ? item.RentedBy.UserId : rentedBy.UserId))
                 .Where(item => item.BookRented.ISBN == (bookRented == null ? item.BookRented.ISBN : bookRented.ISBN))
                 .Where(item => item.DateRented == (dateRented == null ? item.DateRented : dateRented))
+                .Where(item => item.DateExpires == (dateExpires == null ? item.DateExpires : dateExpires))
                 .Where(item => item.DateReturned == (dateReturned == null ? item.DateReturned : dateReturned))
                 .Where(item => item.FinePayed == (finePayed == null ? item.FinePayed : finePayed))];
 
