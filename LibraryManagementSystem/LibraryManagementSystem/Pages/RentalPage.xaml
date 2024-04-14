@@ -18,70 +18,100 @@
                     HorizontalTextAlignment="Center">Logo</Label>
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        Text="Home"
-                        Clicked="HomeButton_Clicked" />
+                    WidthRequest="200"
+                    Text="Home"
+                    Clicked="HomeButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="RentalButton"
-                        Text="Rental" />
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Text="Rental" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        WidthRequest="200"
-                        x:Name="CustomerButton"
-                        Text="Manage Customer" />
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="InventoryButton"
-                        WidthRequest="200"
-                        Text="Manage Inventory" />
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
-                        x:Name="SystemButton"
-                        WidthRequest="200"
-                        Text="Manage System" />
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System" />
             </VerticalStackLayout>
 
             <!-- Main Content -->
-            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15" Margin="0, 15, 0, 0">
 
-                <Label FontSize="20">Book Rental</Label>
+                <Label FontSize="Header">Book Rental</Label>
 
                 <!-- Search book to check availability-->
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Search for Book Availability</Label>
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
                     <!-- Search criteria -->
+                    <Picker x:Name="CategoryPicker" WidthRequest="200" Title="Category">
+                    </Picker>
                     <Entry Placeholder="Book Title" x:Name="BookTitleEntry" WidthRequest="200"/>
-                    <Entry Placeholder="Author First Name" x:Name="AuthorFirstNameEntry" WidthRequest="200"/>
-                    <Entry Placeholder="Author Last Name" x:Name="AuthorLastNameEntry" WidthRequest="200"/>
-                    <Entry Placeholder="ISBN" x:Name="IsbnEntry" WidthRequest="200"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
                     <!-- Search button -->
-                    <Button Text="Search" WidthRequest="200"/>
+                    <Button Text="Search" Clicked="Search_Clicked" WidthRequest="200"/>
                 </HorizontalStackLayout>
 
-                <!-- Shows list of all available books, can add filters -->
-                <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,40,0,0">Available Books</Label>
-                <!-- Filters -->
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
-                    <Label Text="Category:" VerticalOptions="Center" />
-                    <Picker x:Name="CategoryPicker" WidthRequest="200">
+                <!-- Search result -->
+                <Label FontSize="Title" 
+                       x:Name="ResultTitleLabel" IsVisible="False" 
+                       HorizontalTextAlignment="Center" 
+                       Text="Select books" />
+                <ListView x:Name="BooksListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <HorizontalStackLayout Spacing="10" Padding="10">
+                                    <Label Text="{Binding ISBN}" FontSize="Small" />
+                                    <Label Text="/" FontSize="Small" />
+                                    <Label Text="{Binding Title}" FontSize="Small" />
+                                    <Label Text="/" FontSize="Small" />
+                                    <Label Text="{Binding Author}" FontSize="Small" />
+                                    <Label Text="/" FontSize="Small" />
+                                    <Label Text="{Binding Publisher}" FontSize="Small" />
+                                </HorizontalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                    </Picker>
+                <!-- Selected Books for rental -->
+                <VerticalStackLayout x:Name="SelectedBooksGroup" Spacing="15" Margin="0, 15, 0, 0">
+                    <Label FontSize="Title" 
+                           HorizontalTextAlignment="Center" 
+                           Text="Selected books" />
+                    <ListView x:Name="SelectedBooksView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <HorizontalStackLayout Spacing="10" Padding="10">
+                                        <Label Text="{Binding ISBN}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Title}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Author}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Publisher}" FontSize="Small" />
+                                    </HorizontalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
-                    <Label Text="Author Last Name:" VerticalOptions="Center" Margin="20,0,0,0" />
-                    <Picker x:Name="AuthorLastNamePicker" WidthRequest="200">
-
-                    </Picker>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
-                    <!-- Search button -->
-                    <Button Text="View Available Books" WidthRequest="200"/>
-                </HorizontalStackLayout>
+                    <Button Text="Rent" Clicked="RentButton_Clicked" 
+                            BackgroundColor="BlueViolet" TextColor="White"
+                            WidthRequest="200"/>
+                </VerticalStackLayout>
 
             </VerticalStackLayout>
         </HorizontalStackLayout>
