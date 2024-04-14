@@ -1,23 +1,37 @@
 ﻿using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Persistence.Controllers;
+using System;
 
 namespace LibraryManagementSystem.Config
 {
     public static class SystemEnv
     {
-        public const int RENTAL_DAYS_FOR_STUDENT = 14;
-        public const int RENTAL_DAYS_FOR_INSTRUCTOR = 30;
+        public static int RentalDaysForStudent { get; set; }
+        public static int RentalDaysForInstructor { get; set; }
 
         public static User? LoggedInUser { get; set; }
         public static bool IsAuthorized { get; set; }
 
+        /// <summary>
+        /// Calculates the expiration date for a rental based on the user type.
+        /// </summary>
+        /// <remarks>
+        /// This method calculates the expiration date for a rental based on the user type of the logged-in user.
+        /// If the user is a student, it returns the current date plus the number of rental days allowed for students (default: 14 days).
+        /// If the user is an instructor, it returns the current date plus the number of rental days allowed for instructors (default: 30 days).
+        /// If the user is not recognized or the rental days are not set, it returns the current date.
+        /// </remarks>
+        /// <returns>The calculated expiration date.</returns>
         public static DateOnly CalculateExpireDate()
         {
-            return LoggedInUser?.UserType switch
+            int rentalDays = LoggedInUser?.UserType switch
             {
-                User.UserTypes.Student => DateOnly.FromDateTime(DateTime.Now.AddDays(RENTAL_DAYS_FOR_STUDENT)),
-                User.UserTypes.Instructor => DateOnly.FromDateTime(DateTime.Now.AddDays(RENTAL_DAYS_FOR_INSTRUCTOR)),
-                _ => DateOnly.FromDateTime(DateTime.Now)
+                User.UserTypes.Student => RentalDaysForStudent != 0 ? RentalDaysForStudent : 14,
+                User.UserTypes.Instructor => RentalDaysForInstructor != 0 ? RentalDaysForInstructor : 30,
+                _ => 0
             };
+
+            return DateOnly.FromDateTime(DateTime.Now.AddDays(rentalDays));
         }
     }
 }
