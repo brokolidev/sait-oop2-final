@@ -1,4 +1,4 @@
-# CPRG211_Final-Project
+# CPRG211_Final-Project - Library Management System
 
 ## Class: CPRG 211, Section F
 ## Group Member Names and ID
@@ -10,3 +10,7 @@
 - Umaya Hewaarachchi - 000938545
 
 - Nara Park - 000694773
+
+## Disclaimer
+
+Comments for solutions found apply to all locations that the solution was used.

@@ -22,8 +22,11 @@ namespace LibraryManagementSystem.Persistence.Controllers
             if (!_context.Rentals.Contains(rental))
             {
                 var rentalCreated = _context.Rentals.Add(rental).Entity;
+
+                //Solution found here: https://stackoverflow.com/questions/52718652/ef-core-sqlite-sqlite-error-19-unique-constraint-failed
                 _context.Users.Attach(rentalCreated.RentedBy);
                 _context.Books.Attach(rentalCreated.BookRented);
+                _context.Categories.Attach(rentalCreated.BookRented.Category);
                 _context.SaveChanges();
 
                 return rentalCreated.RentalId;
