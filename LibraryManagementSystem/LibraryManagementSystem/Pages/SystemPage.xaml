@@ -78,7 +78,10 @@
 
                 <!-- Apply Button -->
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
-                    <Button Text="Apply Changes" WidthRequest="200" />
+                    <Button x:Name="ApplyChangesButton"  
+                            Text="Apply Changes" 
+                            WidthRequest="200"
+                            Clicked="ApplyChangesButton_Clicked"/>
                 </HorizontalStackLayout>
 
             </VerticalStackLayout>
