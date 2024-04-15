@@ -9,6 +9,26 @@ public partial class SystemPage : ContentPage
     public SystemPage()
     {
         InitializeComponent();
+
+        // Update the text of the CurrentStudentDays label
+        CurrentStudentDays.Text = DisplayStudentRentalDays().ToString();
+
+        // Update the text of the CurrentInstructorDays label
+        CurrentInstructorDays.Text = DisplayInstructorRentalDays().ToString();
+    }
+
+    private int DisplayStudentRentalDays()
+    {
+        int studentDays = SystemEnv.RentalDaysForStudent != 0 ? SystemEnv.RentalDaysForStudent : 14;
+        return studentDays;
+
+    }
+
+    private int DisplayInstructorRentalDays()
+    {
+        int instructorDays = SystemEnv.RentalDaysForInstructor != 0 ? SystemEnv.RentalDaysForInstructor : 30;
+        return instructorDays;
+
     }
 
     protected override void OnAppearing()

@@ -59,7 +59,7 @@
                         <Label FontSize="Subtitle" HorizontalTextAlignment="Center">Rental Days for Students:</Label>
                         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
                             <Label HorizontalTextAlignment="Center" Text="Current Days: "/>
-                            <Label x:Name="CurrentStudentDays"  HorizontalTextAlignment="Center" Text="14"/>
+                            <Label x:Name="CurrentStudentDays"  HorizontalTextAlignment="Center"/>
                         </HorizontalStackLayout>
                         <Entry x:Name="StudentDaysEntry" HorizontalOptions="CenterAndExpand" WidthRequest="200" Keyboard="Numeric" Placeholder="Enter number of days"  />
                     </VerticalStackLayout>
@@ -69,7 +69,7 @@
                         <Label FontSize="Subtitle" HorizontalTextAlignment="Center">Rental Days for Instructors:</Label>
                         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
                             <Label HorizontalTextAlignment="Center" Text="Current Days: "/>
-                            <Label x:Name="CurrentInstructorDays"  HorizontalTextAlignment="Center" Text="30"/>
+                            <Label x:Name="CurrentInstructorDays"  HorizontalTextAlignment="Center"/>
                         </HorizontalStackLayout>
                         <Entry x:Name="InstructorDaysEntry" HorizontalOptions="CenterAndExpand" WidthRequest="200" Keyboard="Numeric" Placeholder="Enter number of days"  />
                     </VerticalStackLayout>
