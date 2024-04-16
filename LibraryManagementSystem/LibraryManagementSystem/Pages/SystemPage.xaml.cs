@@ -77,6 +77,11 @@ public partial class SystemPage : ContentPage
         Shell.Current.GoToAsync(nameof(CustomerPage));
     }
 
+    private void RentalHistoryButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(RentalHistory));
+    }
+
 
 
     /// <summary>

@@ -25,6 +25,12 @@
                     x:Name="RentalButton"
                     Clicked="RentalButton_Clicked"
                     Text="Rental" />
+                
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="RentalHistoryButton"
+                    Clicked="RentalHistoryButton_Clicked"
+                    Text="Rental History" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"

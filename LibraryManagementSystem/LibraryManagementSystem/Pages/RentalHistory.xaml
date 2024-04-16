@@ -3,10 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryManagementSystem.Pages.RentalHistory"
              Title="RentalHistory">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <!-- Side Menu -->
+            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
+
+                <!-- Logo -->
+                <Label 
+                    HeightRequest="100" WidthRequest="250"
+                    FontSize="Header" TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center">Logo</Label>
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    Clicked="HomeButton_Clicked" 
+                    Text="Home" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="RentalButton"
+                    Clicked="RentalButton_Clicked"
+                    Text="Rental" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="RentalHistoryButton"
+                    Clicked="RentalHistoryButton_Clicked"
+                    Text="Rental History" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
+                    x:Name="CustomerButton"
+                    Text="Manage Customer" 
+                    Clicked="CustomerButton_Clicked"/>
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="InventoryButton"
+                    WidthRequest="200"
+                    Text="Manage Inventory"
+                    Clicked="InventoryButton_Clicked" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    x:Name="SystemButton"
+                    WidthRequest="200"
+                    Text="Manage System"
+                    Clicked="SystemButton_Clicked"/>
+
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+
+                <Label FontSize="Header">Rental History</Label>
+
+                <Label FontSize="Title" HorizontalTextAlignment="Center">Rental History</Label>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </ScrollView>
+
 </ContentPage>

@@ -126,4 +126,9 @@ public partial class InventoryPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(AddInventoryPage));
     }
+
+    private void RentalHistoryButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(RentalHistory));
+    }
 }
