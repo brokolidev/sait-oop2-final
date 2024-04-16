@@ -20,6 +20,8 @@ namespace LibraryManagementSystem
             Routing.RegisterRoute(nameof(BookEdit), typeof(BookEdit));
             Routing.RegisterRoute(nameof(UserDetail), typeof(UserDetail));
             Routing.RegisterRoute(nameof(UserEdit), typeof(UserEdit));
+            Routing.RegisterRoute(nameof(RentalHistory), typeof(RentalHistory));
+
         }
     }
 }
