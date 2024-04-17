@@ -44,7 +44,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             //found include method here (found correct parameter reading docstring afterwards): https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager
             //return null if the book was not found
             var book = _context.Books
-                .Include("Category")
+                .Include(item => item.Category)
                 .FirstOrDefault(item => item.ISBN == ISBN);
 
             if (book != null)
@@ -72,7 +72,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
             //if there are no filters, then all will be returned
             //if there are filtered, then the where clauses will act and filter on those.
             List<Book> booksFound = [.. _context.Books
-                .Include("Category")
+                .Include(item => item.Category)
                 .Where(item => EF.Functions.Like(item.Title.ToLower(), "%" + (title == "" ? item.Title.ToLower() : title.ToLower()) + "%"))
                 .Where(item => item.CategoryId == (category == null ? item.CategoryId : category.CategoryId))];
 

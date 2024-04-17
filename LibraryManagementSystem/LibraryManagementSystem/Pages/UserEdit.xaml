@@ -51,7 +51,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15">
-                <Label Text="Edit Book" FontSize="Header" HorizontalOptions="Start" />
+                <Label Text="Edit User" FontSize="Header" HorizontalOptions="Start" />
 
                 <Picker x:Name="UserTypePicker" Title="Select User Type">
                 </Picker>

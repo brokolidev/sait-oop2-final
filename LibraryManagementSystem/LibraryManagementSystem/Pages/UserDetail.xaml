@@ -50,7 +50,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15">
-                <Label Text="Book Detail" FontSize="Header" HorizontalOptions="Start" />
+                <Label Text="User Detail" FontSize="Header" HorizontalOptions="Start" />
 
 
                 <TableView Intent="Data" RowHeight="50">

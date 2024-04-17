@@ -46,7 +46,8 @@ namespace LibraryManagementSystem.Persistence.Controllers
         public Rental GetRental(int rentalId)
         {
             var rental = _context.Rentals
-                .Include("Book.User")
+                .Include(item => item.BookRented)
+                .Include(item => item.RentedBy)
                 .FirstOrDefault(item => item.RentalId == rentalId);
 
             if (rental != null)
@@ -71,7 +72,8 @@ namespace LibraryManagementSystem.Persistence.Controllers
         {
 
             List<Rental> rentalsFound = [.. _context.Rentals
-                .Include("Book.User")
+                .Include(item => item.BookRented)
+                .Include(item => item.RentedBy)
                 .Where(item => item.RentedBy.UserId == (rentedBy == null ? item.RentedBy.UserId : rentedBy.UserId))
                 .Where(item => item.BookRented.ISBN == (bookRented == null ? item.BookRented.ISBN : bookRented.ISBN))
                 .Where(item => item.DateRented == (dateRented == null ? item.DateRented : dateRented))
