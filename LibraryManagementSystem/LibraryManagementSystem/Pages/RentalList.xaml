@@ -51,10 +51,25 @@
 
             </VerticalStackLayout>
 
-            <VerticalStackLayout Padding="20">
+            <VerticalStackLayout Padding="20" Spacing="10">
 
                 <Label FontSize="Header">Rental History</Label>
-                <!-- bind Welcome message property to this label -->
+
+                <HorizontalStackLayout>
+                    <ListView x:Name="RentalListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <HorizontalStackLayout Spacing="10" Padding="10">
+                                        <!-- <Label Text="{Binding RentalId, StringFormat='{0}. '}" FontSize="Small" /> -->
+                                        <Label Text="{Binding RentalId}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                    </HorizontalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </HorizontalStackLayout>
 
             </VerticalStackLayout>
 
