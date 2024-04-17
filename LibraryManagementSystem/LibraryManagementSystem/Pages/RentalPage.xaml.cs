@@ -11,21 +11,34 @@ public partial class RentalPage : ContentPage
 {
     private List<Category> categories;
     private List<Book> books;
-    private Category selectedCategory;
+    private Category? selectedCategory;
     private List<Book> selectedBooks;
+
+    //Controllers needed for this screen
+    private readonly BookController bookController;
+    private readonly CategoryController categoryController;
+    private readonly RentalController rentalController;
 
 
 	public RentalPage()
 	{
 		InitializeComponent();
-    }
 
+        //create new instances of the controllers needed
+        bookController = new();
+        categoryController = new();
+        rentalController = new();
+
+        //default the properties
+        categories = [];
+        books = [];
+        selectedBooks = [];
+    }
 
     // Set Categories
     private void SetCategories()
     {
         // set categories
-        CategoryController categoryController = new CategoryController();
         categories = categoryController.GetAllCategories();
 
         CategoryPicker.ItemsSource = categories;
@@ -47,14 +60,6 @@ public partial class RentalPage : ContentPage
     {
         var title = BookTitleEntry.Text;
 
-        // if no title is provided, replace with empty string
-        // to prevent throwing exeption
-        if (title == null)
-        {
-            title = "";
-        }
-
-        BookController bookController = new BookController();
         books = bookController.GetAllBooks(selectedCategory, title);
 
         // if no books found
@@ -68,6 +73,7 @@ public partial class RentalPage : ContentPage
 
         ResultTitleLabel.IsVisible = true;
         BooksListView.IsVisible = true;
+
         // refresh the list view
         BooksListView.ItemsSource = books;
     }
@@ -128,26 +134,62 @@ public partial class RentalPage : ContentPage
     // rent books
     private void RentButton_Clicked(object sender, EventArgs e)
     {
+        List<String> booksRented = [];
+
         if(selectedBooks.Count == 0)
         {
             DisplayAlert("No Books Selected", "Please select books to rent", "OK");
             return;
         }
 
-        RentalController rentalController = new RentalController();
-        foreach (var book in selectedBooks)
+        foreach (Book book in selectedBooks)
         {
-            var rental = new Rental();
+
+            if (book.Total == 0)
+            {
+                //display a message to the user stating that this book is unavailable.
+                string title = $"{book.Title} Unavailable";
+                string message = $"{book.Title} is not available to be rented at this moment. " +
+                    $"Check with a librarian to see when this book will be available.";
+                DisplayAlert(title, message, "OK");
+
+                //skip this book and proceed to the next
+                continue;
+            }
+
+            //create the rental
+            Rental rental = new();
             rental.BookRented = book;
             rental.RentedBy = SystemEnv.LoggedInUser;
             rental.DateRented = DateOnly.FromDateTime(DateTime.Now);
             rental.DateUpdated = DateOnly.FromDateTime(DateTime.Now);
             rental.DateExpires = SystemEnv.CalculateExpireDate();
 
+            //update the book to, to ensure that it is showing the correct numbers
+            book.Total--;
+            book.CheckedOut = book.CheckedOut == null ? 1 : book.CheckedOut + 1;
+
+            //send it off to the controllers to update the database
+            bookController.UpdateBook(book);
             rentalController.CreateRental(rental);
+
+            //add the name of the book to the list
+            booksRented.Add(book.Title);
         }
 
-        DisplayAlert("Books Rented", "Books rented successfully", "OK");
+        //only display the success message if at least one book was successfully rented
+        if (booksRented.Count > 0)
+        {
+            string message = "The following books were successfully rented:";
+
+            booksRented.ForEach(book =>
+            {
+                message += $"\n{book}";
+            });
+
+            DisplayAlert("Books Rented", message, "OK");
+        }
+
         selectedBooks.Clear();
         SelectedBooksGroup.IsVisible = false;
         SelectedBooksView.ItemsSource = null;
@@ -183,7 +225,11 @@ public partial class RentalPage : ContentPage
         SelectedBooksGroup.IsVisible = false;
         selectedBooks = new List<Book>();
         SelectedBooksView.ItemSelected += OnSelectedBookSelected;
-        
+
+
+        //bring in all of the books in the system
+        //pass new instances of each object. they are not needed for the method to run.
+        Search_Clicked(new(), new());
     }
 
     // navigation buttons

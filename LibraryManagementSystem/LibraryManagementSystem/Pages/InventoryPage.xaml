@@ -66,6 +66,7 @@
                     <Button Text="Filter Inventory" Clicked="Filter_Clicked" WidthRequest="200" HeightRequest="20" Margin="30"></Button>
                 </HorizontalStackLayout>
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Inventory List</Label>
+                <Label Text="ISBN / Title / Author / Publisher / Total Currently Available / Total Checkedout" FontSize="Small" Padding="10, 20, 10, 10" FontAttributes="Italic"/>
                 <HorizontalStackLayout>
                     <ListView x:Name="BooksListView">
                         <ListView.ItemTemplate>
@@ -79,6 +80,10 @@
                                         <Label Text="{Binding Author}" FontSize="Small" />
                                         <Label Text="/" FontSize="Small" />
                                         <Label Text="{Binding Publisher}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding Total}" FontSize="Small" />
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding CheckedOut}" FontSize="Small" />
                                     </HorizontalStackLayout>
                                 </ViewCell>
                             </DataTemplate>

@@ -19,6 +19,8 @@ public partial class InventoryPage : ContentPage
 		InitializeComponent();
 
         bookController = new BookController();
+
+
     }
 
     // Set Categories
@@ -71,7 +73,7 @@ public partial class InventoryPage : ContentPage
     // event handler for search button
     private void Filter_Clicked(object sender, EventArgs e)
     {
-        var filteredBooks = bookController.GetAllBooks(selectedCategory, filterTitle);
+        books = bookController.GetAllBooks(selectedCategory, filterTitle);
         BooksListView.ItemsSource = books;
     }
 
@@ -96,15 +98,16 @@ public partial class InventoryPage : ContentPage
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser is Administrator;
 
-
         // set event handlers
         SetBooksList();
         SetCategories();
         filterTitleEntry.TextChanged += OnTitleEntryChanged;
+
     }
 
 
     // Navigation Buttons
+
     private void HomeButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.Navigation.PopToRootAsync();

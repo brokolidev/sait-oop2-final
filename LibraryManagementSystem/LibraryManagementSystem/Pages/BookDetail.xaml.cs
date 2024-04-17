@@ -9,10 +9,14 @@ namespace LibraryManagementSystem.Pages;
 public partial class BookDetail : ContentPage
 {
     private Book book;
+    private readonly BookController bookController;
 
 	public BookDetail()
 	{
 		InitializeComponent();
+
+        book = new();
+        bookController = new();
 
 	}
 
@@ -21,9 +25,17 @@ public partial class BookDetail : ContentPage
     {
         set
         {
-            BookController bookController = new BookController();
-            book = bookController.GetBook(value);
-            SetBookDetails();
+            try
+            {
+                book = bookController.GetBook(value);
+                SetBookDetails();
+            }
+            catch (Exception ex)
+            {
+                //return the user to the inventory page
+                DisplayAlert("Book Not found", $"Book with ISBN {value} was not found in the database.", "OK");
+                CancelButton_Clicked(new(), new());
+            }
         }
     }
 
@@ -37,8 +49,10 @@ public partial class BookDetail : ContentPage
         DatePublished.Detail = book.DatePublished.ToString("yyyy-MM-dd");
         DateRegistered.Detail = book.DateRegistered.ToString("yyyy-MM-dd");
         DateUpdated.Detail = book.DateUpdated.ToString();
-        Total.Detail = book.Total.ToString();
-        CheckedOut.Detail = (book.CheckedOut == 0) ? "Available": "Unavailable";
+        TotalAvailable.Detail = book.Total.ToString();
+        TotalCheckedOut.Detail = book.CheckedOut.ToString() == "" ? "Never been checked out" : book.CheckedOut.ToString();
+        TotalNumber.Detail = (book.Total + (book.CheckedOut == null ? 0 : book.CheckedOut)).ToString();
+        CheckedOut.Detail = (book.Total != 0) ? "Available": "Unavailable";
         Category.Detail = book.Category.Name;
     }
 

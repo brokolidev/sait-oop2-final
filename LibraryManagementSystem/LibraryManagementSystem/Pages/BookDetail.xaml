@@ -64,7 +64,9 @@
                             <TextCell x:Name="DatePublished" Text="Published Date" />
                             <TextCell x:Name="DateRegistered" Text="Registered Date" />
                             <TextCell x:Name="DateUpdated" Text="Updated Date" />
-                            <TextCell x:Name="Total" Text="Total Rented" />
+                            <TextCell x:Name="TotalAvailable" Text="Total Availiable" />
+                            <TextCell x:Name="TotalCheckedOut" Text="Total Checked Out" />
+                            <TextCell x:Name="TotalNumber" Text="Total Number" />
                             <TextCell x:Name="CheckedOut" Text="Availability" />
                         </TableSection>
                     </TableRoot>

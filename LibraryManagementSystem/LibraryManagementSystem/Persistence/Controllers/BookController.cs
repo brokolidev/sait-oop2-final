@@ -41,7 +41,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// <returns>The <see cref="Book"/> found, <c>Null</c> otherwise</returns>
         public Book GetBook(string ISBN)
         {
-            //found include method here (found correct parameter reading docstring afterwards): https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager
+            //found include method here: https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager
             //return null if the book was not found
             var book = _context.Books
                 .Include(item => item.Category)
