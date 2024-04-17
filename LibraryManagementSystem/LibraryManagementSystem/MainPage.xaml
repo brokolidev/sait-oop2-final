@@ -27,7 +27,7 @@
                 <Entry Placeholder="Email" x:Name="EmailEntry" Text="jane@example.com" />
 
                 <Label FontSize="Body">Password</Label>
-                <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" Text="janepass" />
+                <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" Text="pass" />
 
                 <Button Text="Login" BackgroundColor="BlueViolet" Margin="0, 15, 0, 0" TextColor="White" Clicked="LoginButton_Clicked"/>
 

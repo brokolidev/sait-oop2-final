@@ -105,7 +105,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         public User? ValidateCredentials(string email, string password)
         {
             //This should return 1 if the credentials are valid
-            var userFound = _context.Users.FirstOrDefault(item => item.Email == email &&
+            var userFound = _context.Users.FirstOrDefault(item => item.Email.ToLower() == email.ToLower() &&
                 item.Password == password);
 
             if (userFound != null)
