@@ -57,6 +57,11 @@ namespace LibraryManagementSystem.Persistence.Controllers
         public List<User> GetAllUsers(User.UserTypes? userType = null, string firstName = "", string email = "", string phone = "")
         {
 
+            //default the strings, if they are null
+            firstName ??= "";
+            email ??= "";
+            phone ??= "";
+
             //Found the like method here: https://stackoverflow.com/questions/45708715/entity-framework-ef-functions-like-vs-string-contains
             //if there are no filters, then all will be returned
             //if there are filtered, then the where clauses will act and filter on those.

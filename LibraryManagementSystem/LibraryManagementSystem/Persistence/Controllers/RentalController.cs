@@ -67,7 +67,7 @@ namespace LibraryManagementSystem.Persistence.Controllers
         /// </summary>
         /// <returns>A <c>List&lt;&lt;<see cref="Rental"/>&gt;&gt;</c> of all of the <see cref="Rental"/> objects in the database</returns>
         public List<Rental> GetAllRentals(User? rentedBy = null, Book? bookRented = null,
-            DateOnly? dateRented = null, DateOnly? dateExpires = null, DateOnly ? dateReturned = null, bool? finePayed = null)
+            DateOnly? dateRented = null, DateOnly? dateExpires = null, DateOnly? dateReturned = null, bool? finePayed = null)
         {
 
             List<Rental> rentalsFound = [.. _context.Rentals
