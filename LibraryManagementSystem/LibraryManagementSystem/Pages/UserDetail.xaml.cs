@@ -103,10 +103,4 @@ public partial class UserDetail : ContentPage
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
     }
-
-    private void StaffRentalHistoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(StaffRentalHistory));
-
-    }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LibraryManagementSystem.Pages.StaffRentalHistory"
-             Title="StaffRentalHistory">
+             x:Class="LibraryManagementSystem.Pages.RentalList"
+             Title="RentalList">
+
     <ScrollView>
         <HorizontalStackLayout>
 
@@ -12,11 +13,11 @@
                 <!-- Logo -->
                 <Image WidthRequest="150" HeightRequest="80" Margin="20" Source="sait.png" />
 
-
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
-                    Clicked="HomeButton_Clicked" 
-                    Text="Home" />
+                    Text="Home"
+                    x:Name="HomeButton"
+                    Clicked="HomeButton_Clicked" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
@@ -26,8 +27,8 @@
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
-                    x:Name="StaffRentalHistoryButton"
-                    Clicked="StaffRentalHistoryButton_Clicked"
+                    x:Name="RentalHistoryButton"
+                    Clicked="RentalHistory_Clicked"
                     Text="Rental History" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
@@ -50,14 +51,13 @@
 
             </VerticalStackLayout>
 
-
-            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="10">
+            <VerticalStackLayout Padding="20">
 
                 <Label FontSize="Header">Rental History</Label>
+                <!-- bind Welcome message property to this label -->
 
-                <Label FontSize="Title" HorizontalTextAlignment="Center">Rental History</Label>
-                <Label FontSize="Subtitle" HorizontalTextAlignment="Center">(for staff only)</Label>
             </VerticalStackLayout>
+
         </HorizontalStackLayout>
     </ScrollView>
 

@@ -26,10 +26,6 @@ public partial class Welcome : ContentPage
             SystemEnv.LoggedInUser is Student || 
             SystemEnv.LoggedInUser is Instructor;
 
-        StaffRentalHistoryButton.IsVisible =
-            SystemEnv.LoggedInUser is Librarian ||
-            SystemEnv.LoggedInUser is Administrator;
-
         CustomerButton.IsVisible = 
             SystemEnv.LoggedInUser is Librarian || 
             SystemEnv.LoggedInUser is Administrator;
@@ -42,18 +38,19 @@ public partial class Welcome : ContentPage
             SystemEnv.LoggedInUser is Administrator;
     }
 
-    // navigation buttons
-    private void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
+    // logout button
     private void LogoutButton_Clicked(object sender, EventArgs e)
     {
         SystemEnv.LoggedInUser = null;
         SystemEnv.IsAuthorized = false;
-        
+
         Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+    }
+
+    // navigation buttons
+    private void InventoryButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(InventoryPage));
     }
 
     private void CustomerButton_Clicked(object sender, EventArgs e)
@@ -71,9 +68,9 @@ public partial class Welcome : ContentPage
         Shell.Current.GoToAsync(nameof(RentalPage));
     }
 
-    private void StaffRentalHistoryButton_Clicked(object sender, EventArgs e)
+    private void RentalHistory_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(StaffRentalHistory));
+        Shell.Current.GoToAsync(nameof(RentalList));
 
     }
 }

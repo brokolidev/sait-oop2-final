@@ -78,10 +78,6 @@ public partial class BookDetail : ContentPage
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Student ||
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Instructor;
 
-        StaffRentalHistoryButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
         CustomerButton.IsVisible =
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
             SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
@@ -113,12 +109,6 @@ public partial class BookDetail : ContentPage
     private void SystemButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(SystemPage));
-    }
-
-    private void StaffRentalHistoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(StaffRentalHistory));
-
     }
 
 }

@@ -26,8 +26,7 @@
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
-                    x:Name="StaffRentalHistoryButton"
-                    Clicked="StaffRentalHistoryButton_Clicked"
+                    x:Name="RentalHistoryButton"
                     Text="Rental History" />
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
