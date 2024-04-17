@@ -12,11 +12,8 @@
             <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
 
                 <!-- Logo -->
-                <Label 
-                    HeightRequest="100" WidthRequest="250"
-                    FontSize="Header" TextColor="White"
-                    VerticalTextAlignment="Center"
-                    HorizontalTextAlignment="Center">Logo</Label>
+                <Image WidthRequest="150" HeightRequest="80" Margin="20" Source="sait.png" />
+
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
