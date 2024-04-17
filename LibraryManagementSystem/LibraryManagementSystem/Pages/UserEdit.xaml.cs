@@ -47,6 +47,27 @@ public partial class UserEdit : ContentPage
             return;
         }
 
+        // validation for phone field
+        // allowd formats:
+        // (xxx)xxxxxxx
+        // (xxx)xxxxxxx
+        // (xxx)xxx - xxxx
+        // (xxx) xxx - xxxx
+        // xxxxxxxxxx
+        // xxx - xxx - xxxxx
+        if (!System.Text.RegularExpressions.Regex.IsMatch(phoneNumberEntry.Text, @"^\(?([0-9]{3})\)?[-.¡Ü]?([0-9]{3})[-.¡Ü]?([0-9]{4})$"))
+        {
+            DisplayAlert("Error", "Please enter a valid phone number", "OK");
+            return;
+        }
+
+        // validation for email address
+        if (!SystemEnv.IsValidEmail(emailEntry.Text))
+        {
+            DisplayAlert("Error", "Please enter a valid email address", "OK");
+            return;
+        }
+
         // update user
         user.FirstName = firstNameEntry.Text;
         user.LastName = lastNameEntry.Text;

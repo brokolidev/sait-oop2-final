@@ -1,6 +1,7 @@
 ﻿using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Persistence.Controllers;
 using System;
+using System.Net.Mail;
 
 namespace LibraryManagementSystem.Config
 {
@@ -32,6 +33,21 @@ namespace LibraryManagementSystem.Config
             };
 
             return DateOnly.FromDateTime(DateTime.Now.AddDays(rentalDays));
+        }
+
+        // validtaion for email address
+        public static bool IsValidEmail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }
