@@ -83,6 +83,10 @@ public partial class CustomerPage : ContentPage
             SystemEnv.LoggedInUser is Student ||
             SystemEnv.LoggedInUser is Instructor;
 
+        StaffRentalHistoryButton.IsVisible =
+            SystemEnv.LoggedInUser is Librarian ||
+            SystemEnv.LoggedInUser is Administrator;
+
         CustomerButton.IsVisible =
             SystemEnv.LoggedInUser is Librarian ||
             SystemEnv.LoggedInUser is Administrator;
@@ -119,8 +123,8 @@ public partial class CustomerPage : ContentPage
         Shell.Current.GoToAsync(nameof(SystemPage));
     }
 
-    private void RentalHistoryButton_Clicked(object sender, EventArgs e)
+    private void StaffRentalHistoryButton_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(RentalHistory));
+        Shell.Current.GoToAsync(nameof(StaffRentalHistory));
     }
 }

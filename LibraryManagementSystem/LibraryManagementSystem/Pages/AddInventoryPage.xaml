@@ -28,6 +28,12 @@
 
                 <Button BackgroundColor="#1B1A55" TextColor="White"
                     WidthRequest="200"
+                    x:Name="StaffRentalHistoryButton"
+                    Clicked="StaffRentalHistoryButton_Clicked"
+                    Text="Rental History" />
+
+                <Button BackgroundColor="#1B1A55" TextColor="White"
+                    WidthRequest="200"
                     x:Name="CustomerButton"
                     Text="Manage Customer"
                     Clicked="CustomerButton_Clicked"/>
