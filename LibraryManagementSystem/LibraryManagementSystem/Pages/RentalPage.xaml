@@ -116,6 +116,15 @@
                             WidthRequest="200"/>
                 </VerticalStackLayout>
 
+                <!-- View Rental History Button -->
+                <Label FontSize="Title" HorizontalTextAlignment="Center" Margin="0, 30, 0, 0" >View Your Rental History</Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,0">
+                    <Button x:Name="ViewRentalHistoryButton"  
+                    Text="View Rental History" 
+                    WidthRequest="200"
+                    Clicked="ViewRentalHistoryButton_Clicked"/>  
+                </HorizontalStackLayout>
+
             </VerticalStackLayout>
         </HorizontalStackLayout>
     </ScrollView>

@@ -215,4 +215,9 @@ public partial class RentalPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(StaffRentalHistory));
     }
+
+    private void ViewRentalHistoryButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(CustomerRentalHistory));
+    }
 }
