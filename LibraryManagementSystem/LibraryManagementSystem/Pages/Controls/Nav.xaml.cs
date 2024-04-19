@@ -28,34 +28,41 @@ public partial class Nav : ContentView
             SystemEnv.LoggedInUser is Administrator;
     }
 
-    // navigation buttons
+    // Home
     private void HomeButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.Navigation.PopToRootAsync();
     }
-
-    private void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
-    private void CustomerButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(CustomerPage));
-    }
-
-    private void SystemButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(SystemPage));
-    }
-
+    
+    // Rental
     private void RentalButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(RentalPage));
     }
 
+    // Rental History
     private void RentalHistory_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(RentalList));
     }
+
+    // Inventory(Books)
+    private void InventoryButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(InventoryPage));
+    }
+
+    // Customer
+    private void CustomerButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(CustomerPage));
+    }
+
+    // System
+    private void SystemButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(SystemPage));
+    }
+
+    
 }
