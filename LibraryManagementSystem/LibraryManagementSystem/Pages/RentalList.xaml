@@ -19,10 +19,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <HorizontalStackLayout Spacing="10" Padding="10">
-                                        <!-- <Label Text="{Binding RentalId, StringFormat='{0}. '}" FontSize="Small" /> -->
+                                    <HorizontalStackLayout Spacing="10" Padding="10" 
+                                                           VerticalOptions="CenterAndExpand">
                                         <Label Text="{Binding RentalId}" FontSize="Small" />
+
                                         <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding DateRented}" FontSize="Small" />
+
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding DateExpires}" FontSize="Small" />
+
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding RentedBy.FirstName}" FontSize="Small" />
+                                        
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding BookRented.Title}" FontSize="Small" />
+
+                                        <Label Text="/" FontSize="Small" />
+                                        <Label Text="{Binding DateReturned}" FontSize="Small" />
+
+                                        <Button Text="Return" 
+                                                CommandParameter="{Binding RentalId}"
+                                                Clicked="ReturnButton_Clicked" />
                                     </HorizontalStackLayout>
                                 </ViewCell>
                             </DataTemplate>
