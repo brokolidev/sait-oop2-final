@@ -17,7 +17,7 @@
 
 
                 <Label FontSize="Body">Email</Label>
-                <Entry Placeholder="Email" x:Name="EmailEntry" Text="admin@example.com" />
+                <Entry Placeholder="Email" x:Name="EmailEntry" Text="jane@example.com" />
 
                 <Label FontSize="Body">Password</Label>
                 <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" Text="pass" />

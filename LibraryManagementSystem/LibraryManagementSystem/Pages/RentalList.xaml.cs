@@ -54,6 +54,12 @@ public partial class RentalList : ContentPage
         selectedRental.DateReturned = DateOnly.FromDateTime(DateTime.Now);
         rentalController.UpdateRental(selectedRental);
 
+        // update book total count
+        Book rentedBook = selectedRental.BookRented;
+        rentedBook.Total++;
+        BookController bookController = new BookController();
+        bookController.UpdateBook(rentedBook);
+
         // display success message
         await DisplayAlert("Success", "Book returned successfully", "OK");
 

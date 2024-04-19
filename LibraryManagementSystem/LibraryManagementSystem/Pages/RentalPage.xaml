@@ -46,6 +46,8 @@
                                     <Label Text="{Binding Author}" FontSize="Small" />
                                     <Label Text="/" FontSize="Small" />
                                     <Label Text="{Binding Publisher}" FontSize="Small" />
+                                    <Label Text="/" FontSize="Small" />
+                                    <Label Text="{Binding Total}" FontSize="Small" />
                                 </HorizontalStackLayout>
                             </ViewCell>
                         </DataTemplate>

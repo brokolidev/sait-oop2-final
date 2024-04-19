@@ -88,6 +88,13 @@ public partial class RentalPage : ContentPage
             return;
         }
 
+        // prevent renting if the book is not available
+        if(book.Total < 1)
+        {
+            DisplayAlert("Book Unavailable", "The book is not available to rent", "OK");
+            return;
+        }
+
         // if book is already selected, skip it
         if(!selectedBooks.Contains(book))
         {
