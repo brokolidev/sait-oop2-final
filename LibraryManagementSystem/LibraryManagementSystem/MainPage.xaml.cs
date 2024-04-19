@@ -49,12 +49,6 @@ namespace LibraryManagementSystem.Pages
             }
         }
 
-        // Navigation Buttons
-        private void InventoryButton_Clicked(object sender, EventArgs e)
-        {
-            Shell.Current.GoToAsync(nameof(InventoryPage));
-        }
-
         // this will need to be replaced with a database check
         private bool TryLogin(string email, string password)
         {

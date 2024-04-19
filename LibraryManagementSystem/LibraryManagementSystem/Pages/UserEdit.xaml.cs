@@ -76,8 +76,6 @@ public partial class UserEdit : ContentPage
         user.UserType = selectedUserType;
         user.IsBlocked = isBlockedCheckBox.IsChecked;
         
-        // @TODO: validate email
-
         // @TODO: validate password
         if(!string.IsNullOrEmpty(passwordEntry.Text))
         {
@@ -118,44 +116,7 @@ public partial class UserEdit : ContentPage
     {
         base.OnAppearing();
 
-        // set buttons by user types
-        RentalButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Student ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Instructor;
-
-        CustomerButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
-        InventoryButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
-        SystemButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
         // set user type
         SetUserTypes();
-    }
-
-
-    // navigation buttons
-    private void HomeButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.Navigation.PopToRootAsync();
-    }
-
-    private void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
-    private void CustomerButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(CustomerPage));
-    }
-    private void SystemButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(SystemPage));
     }
 }

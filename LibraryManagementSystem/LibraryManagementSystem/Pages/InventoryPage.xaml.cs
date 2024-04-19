@@ -19,8 +19,6 @@ public partial class InventoryPage : ContentPage
 		InitializeComponent();
 
         bookController = new BookController();
-
-
     }
 
     // Set Categories
@@ -82,47 +80,12 @@ public partial class InventoryPage : ContentPage
     {
         base.OnAppearing();
 
-        // set buttons by user types
-        RentalButton.IsVisible =
-            SystemEnv.LoggedInUser is Student ||
-            SystemEnv.LoggedInUser is Instructor;
-
-        CustomerButton.IsVisible =
-            SystemEnv.LoggedInUser is Librarian ||
-            SystemEnv.LoggedInUser is Administrator;
-
-        InventoryButton.IsVisible =
-            SystemEnv.LoggedInUser is Librarian ||
-            SystemEnv.LoggedInUser is Administrator;
-
-        SystemButton.IsVisible =
-            SystemEnv.LoggedInUser is Administrator;
-
         // set event handlers
         SetBooksList();
         SetCategories();
         filterTitleEntry.TextChanged += OnTitleEntryChanged;
 
     }
-
-
-    // Navigation Buttons
-
-    private void HomeButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.Navigation.PopToRootAsync();
-    }
-
-    private void CustomerButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(CustomerPage));
-    }
-
-    private void SystemButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(SystemPage));
-    }
-
 
     // Add Buttons routing
     private void AddInvenButton_Clicked(object sender, EventArgs e)

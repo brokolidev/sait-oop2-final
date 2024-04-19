@@ -2,51 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryManagementSystem.Pages.CustomerPage"
+             xmlns:controls="clr-namespace:LibraryManagementSystem.Pages.Controls"
              Title="CustomerPage">
     <ScrollView>
         <HorizontalStackLayout>
 
-            <!-- Side Menu -->
-            <VerticalStackLayout WidthRequest="250" BackgroundColor="#070F2B" Spacing="10">
-
-                <!-- Logo -->
-                <Image WidthRequest="150" HeightRequest="80" Margin="20" Source="sait.png" />
-
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    WidthRequest="200"
-                    Text="Home"
-                    Clicked="HomeButton_Clicked" />
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    WidthRequest="200"
-                    x:Name="RentalButton"
-                    Text="Rental" />
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    WidthRequest="200"
-                    x:Name="RentalHistoryButton"
-                    Text="Rental History" />
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    WidthRequest="200"
-                    x:Name="CustomerButton"
-                    Text="Manage Customer"
-                    Clicked="CustomerButton_Clicked"/>
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    x:Name="InventoryButton"
-                    WidthRequest="200"
-                    Text="Manage Inventory"
-                    Clicked="InventoryButton_Clicked" />
-
-                <Button BackgroundColor="#1B1A55" TextColor="White"
-                    x:Name="SystemButton"
-                    WidthRequest="200"
-                    Text="Manage System" 
-                    Clicked="SystemButton_Clicked"/>
-
-            </VerticalStackLayout>
+            <controls:Nav x:Name="NavControl" />
 
             <VerticalStackLayout Padding="20" WidthRequest="1300" Spacing="10">
 

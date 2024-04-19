@@ -17,7 +17,6 @@ public partial class BookDetail : ContentPage
 
         book = new();
         bookController = new();
-
 	}
 
     // set parameter for selected book
@@ -86,43 +85,5 @@ public partial class BookDetail : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
-        // set buttons by user types
-        RentalButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Student ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Instructor;
-
-        CustomerButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
-        InventoryButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Librarian ||
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
-
-        SystemButton.IsVisible =
-            SystemEnv.LoggedInUser.UserType == User.UserTypes.Administrator;
     }
-
-
-    // navigation buttons
-    private void HomeButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.Navigation.PopToRootAsync();
-    }
-
-    private void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
-    private void CustomerButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(CustomerPage));
-    }
-    private void SystemButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(SystemPage));
-    }
-
 }
