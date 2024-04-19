@@ -13,6 +13,8 @@
             <VerticalStackLayout Padding="20" Spacing="10">
 
                 <Label FontSize="Header">Rental History</Label>
+                <Label Text="ID / Date Rented / Date Expires / Rented By / Book Title / Date Returned" 
+                       FontSize="Small" Padding="10, 20, 10, 10" FontAttributes="Italic"/>
 
                 <HorizontalStackLayout>
                     <ListView x:Name="RentalListView">

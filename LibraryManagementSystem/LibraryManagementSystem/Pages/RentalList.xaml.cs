@@ -21,11 +21,12 @@ public partial class RentalList : ContentPage
     // Set Rentals List
     private void SetRentalList()
     {
+        // get rentals only for students and instructors when logged in as student or instructor
         if(SystemEnv.LoggedInUser is Student || SystemEnv.LoggedInUser is Instructor)
         {
             rentals = rentalController.GetAllRentals(SystemEnv.LoggedInUser);
         }
-        else
+        else // get all rentals for librarian and administrator
         {
             rentals = rentalController.GetAllRentals();
         }

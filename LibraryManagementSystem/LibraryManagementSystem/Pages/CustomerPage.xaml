@@ -43,7 +43,10 @@
                 </HorizontalStackLayout>
                 
                 <Label FontSize="Title" HorizontalTextAlignment="Center">Customer List</Label>
-                
+
+                <Label Text="ID / User Type / Name / Email / Phone / Blocked"
+                    FontSize="Small" Padding="10, 20, 10, 10" FontAttributes="Italic"/>
+
                 <HorizontalStackLayout>
                     <ListView x:Name="CustomerListView">
                         <ListView.ItemTemplate>

@@ -34,6 +34,10 @@
                        x:Name="ResultTitleLabel" IsVisible="False" 
                        HorizontalTextAlignment="Center" 
                        Text="Select books" />
+
+                <Label Text="ISBN / Title / Author / Publisher / Quantity" 
+                    FontSize="Small" Padding="10, 20, 10, 10" FontAttributes="Italic"/>
+
                 <ListView x:Name="BooksListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
