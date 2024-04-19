@@ -21,10 +21,16 @@ public partial class RentalList : ContentPage
     // Set Rentals List
     private void SetRentalList()
     {
-        rentals = rentalController.GetAllRentals();
+        if(SystemEnv.LoggedInUser is Student || SystemEnv.LoggedInUser is Instructor)
+        {
+            rentals = rentalController.GetAllRentals(SystemEnv.LoggedInUser);
+        }
+        else
+        {
+            rentals = rentalController.GetAllRentals();
+        }
         var rentalCollection = new ObservableCollection<Rental>(rentals);
         RentalListView.ItemsSource = rentalCollection;
-        //RentalListView.ItemSelected += OnCustomerSelected;
     }
 
     protected override void OnAppearing()
