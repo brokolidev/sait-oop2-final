@@ -45,5 +45,11 @@
             Text="Manage System"
             Clicked="SystemButton_Clicked"/>
 
+        <Button BackgroundColor="#1B1A55" TextColor="White"
+            x:Name="MyPageButton"
+            WidthRequest="200"
+            Text="My Page"
+            Clicked="MyPageButton_Clicked"/>
+
     </VerticalStackLayout>
 </ContentView>

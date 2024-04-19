@@ -26,6 +26,8 @@ public partial class Nav : ContentView
 
         SystemButton.IsVisible =
             SystemEnv.LoggedInUser is Administrator;
+
+        MyPageButton.IsVisible = SystemEnv.IsAuthorized;
     }
 
     // Home
@@ -64,5 +66,9 @@ public partial class Nav : ContentView
         Shell.Current.GoToAsync(nameof(SystemPage));
     }
 
-    
+    // My Page
+    private void MyPageButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(MyPage));
+    }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryManagementSystem.Pages.MyPage"
+             xmlns:controls="clr-namespace:LibraryManagementSystem.Pages.Controls"
+             Title="MyPage">
+
+    <ScrollView>
+        <HorizontalStackLayout>
+
+            <controls:Nav x:Name="NavControl" />
+
+            <VerticalStackLayout Padding="20" WidthRequest="1000" Spacing="15">
+                <Label Text="Edit User" FontSize="Header" HorizontalOptions="Start" />
+
+                <Label Text="User Type" FontAttributes="Bold" />
+                <Label x:Name="UserTypeLabel" />
+
+                <Label Text="Firs tName" FontAttributes="Bold" />
+                <Entry x:Name="firstNameEntry" Placeholder="First Name" />
+
+                <Label Text="Last Name" FontAttributes="Bold" />
+                <Entry x:Name="lastNameEntry" Placeholder="Last Name" />
+
+                <Label Text="Email" FontAttributes="Bold" />
+                <Entry x:Name="emailEntry" Placeholder="Email" />
+
+                <Label Text="Password" FontAttributes="Bold" />
+                <Entry x:Name="passwordEntry" Placeholder="Enter a new password"/>
+
+                <Label Text="Phone Number" FontAttributes="Bold" />
+                <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number"/>
+
+                <Label Text="Blocked" FontAttributes="Bold" />
+                <CheckBox x:Name="isBlockedCheckBox" />
+
+                <Button Text="Update" Clicked="UpdateButton_Clicked" />
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+    </ScrollView>
+
+</ContentPage>
